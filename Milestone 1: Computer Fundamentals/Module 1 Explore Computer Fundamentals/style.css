@@ -1,0 +1,83 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f2f4f8;
+  color: #222;
+  padding: 1rem;
+}
+
+header {
+  background: #2d89ef;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2rem;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+section {
+  margin-bottom: 2.5rem;
+}
+
+section h2 {
+  color: #2d89ef;
+  margin-bottom: 1rem;
+}
+
+section img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+#footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  padding-top: 2rem;
+  border-top: 1px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
