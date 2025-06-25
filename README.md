@@ -80,8 +80,8 @@ This repository is for:
 
 ## 🤝 Connect With Me
 
-- 🔗 [GitHub Profile](https://github.com/your-username)
-- 💼 [LinkedIn](https://linkedin.com/in/your-profile)
+- 🔗 [GitHub Profile](https://github.com/withrifat)
+- 💼 [LinkedIn](https://linkedin.com/in/withrifat)
 - 📬 Email: your.email@example.com
 
 ---
