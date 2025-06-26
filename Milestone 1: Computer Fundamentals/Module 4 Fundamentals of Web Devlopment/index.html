@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Web Development Notes</title>
+<style>
+  /* Reset some default styles */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+  }
+  header {
+    background-color: #4f46e5;
+    color: #fff;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem 3rem;
+  }
+  h1, h2, h3 {
+    color: #1e293b;
+    margin-top: 1.8rem;
+  }
+  h1 {
+    font-size: 2.4rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    border-left: 5px solid #4f46e5;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
+  ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  li {
+    margin-bottom: 0.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 2rem;
+  }
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.7rem 1rem;
+    text-align: left;
+  }
+  th {
+    background-color: #4f46e5;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f3f4f6;
+  }
+  /* Responsive */
+  @media (max-width: 600px) {
+    body {
+      font-size: 0.9rem;
+    }
+    header {
+      font-size: 1.5rem;
+      padding: 1rem 0.5rem;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+    }
+    h3 {
+      font-size: 1.1rem;
+    }
+    table, thead, tbody, th, td, tr {
+      display: block;
+      width: 100%;
+    }
+    thead tr {
+      display: none;
+    }
+    tr {
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 0.5rem;
+    }
+    td {
+      border: none;
+      padding: 0.3rem 0.5rem;
+      position: relative;
+      padding-left: 50%;
+      text-align: right;
+      font-size: 0.9rem;
+    }
+    td::before {
+      position: absolute;
+      left: 1rem;
+      width: 45%;
+      white-space: nowrap;
+      font-weight: 600;
+      text-align: left;
+      content: attr(data-label);
+    }
+  }
+  /* Highlight code or keywords if needed */
+  code {
+    background: #e0e7ff;
+    color: #3730a3;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+<header>Web Development Notes</header>
+<main>
+
+<section>
+  <h1>Building Blocks of Web Development</h1>
+  
+  <h2>1. Frontend Development</h2>
+  <ul>
+    <li><strong>What it is:</strong> The part of the website or web app that users interact with directly.</li>
+    <li><strong>Technologies:</strong> HTML, CSS, JavaScript, frameworks/libraries like React, Angular, Vue.js.</li>
+    <li><strong>Main tasks:</strong> Creating layouts, styling, making interactive elements, responsive design for different devices.</li>
+    <li><strong>Skills:</strong> UI/UX understanding, JavaScript, CSS preprocessors (SASS, LESS), version control (Git).</li>
+  </ul>
+
+  <h2>2. Backend Development</h2>
+  <ul>
+    <li><strong>What it is:</strong> Server-side development, dealing with databases, application logic, and server configuration.</li>
+    <li><strong>Technologies:</strong> Languages like Python (Django, Flask), JavaScript (Node.js), Ruby (Rails), PHP, Java, databases (SQL, NoSQL).</li>
+    <li><strong>Main tasks:</strong> Handling data storage, user authentication, API development, server logic.</li>
+    <li><strong>Skills:</strong> Server management, database design, RESTful APIs, security best practices.</li>
+  </ul>
+
+  <h2>3. Full Stack Development</h2>
+  <ul>
+    <li><strong>What it is:</strong> A developer who can work on both frontend and backend.</li>
+    <li><strong>Technologies:</strong> Combination of frontend and backend tools.</li>
+    <li><strong>Main tasks:</strong> Building complete applications, integrating frontend with backend, troubleshooting full system.</li>
+    <li><strong>Skills:</strong> Versatile knowledge across both domains, problem-solving, project architecture.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Website Categories / Types</h1>
+  <ul>
+    <li><strong>Personal Website:</strong> Portfolio, blogs, resumes, hobby sites.</li>
+    <li><strong>Business/Agency Website:</strong> Company profile, service listings, client engagement.</li>
+    <li><strong>E-commerce Website:</strong> Online stores with product listings, cart, payment systems (e.g., Amazon, Shopify).</li>
+    <li><strong>Educational Website:</strong> Online courses, tutorials, learning management systems (LMS).</li>
+    <li><strong>Entertainment Website:</strong> Streaming platforms, gaming sites, media portals.</li>
+    <li><strong>Others:</strong> News portals, social networking sites, government websites, non-profits, forums.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>How the Web Works: Domain Names and URLs</h1>
+  <ul>
+    <li><strong>Domain Name:</strong> Human-readable address of a website (e.g., <code>www.example.com</code>).</li>
+    <li><strong>IP Address:</strong> Numeric address that servers use (e.g., <code>192.0.2.1</code>). DNS translates domain names to IP addresses.</li>
+    <li><strong>URL (Uniform Resource Locator):</strong> Complete address to access a specific resource on the internet, includes protocol (http/https), domain, path, and parameters.</li>
+    <li><strong>Web Hosting:</strong> Space on a server where website files are stored. When users visit a URL, the browser sends a request to the server to fetch files.</li>
+    <li><strong>Protocols:</strong> HTTP and HTTPS are the main protocols for communication between browsers and servers. HTTPS adds encryption for security.</li>
+    <li><strong>DNS System:</strong> Domain Name System resolves domain names to IP addresses to direct internet traffic correctly.</li>
+    <li><strong>Web Browsers:</strong> Software (Chrome, Firefox, Safari) that fetches, renders, and displays websites.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>Web Design vs Web Development vs Software Development</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Aspect</th>
+        <th>Web Design</th>
+        <th>Web Development</th>
+        <th>Software Development</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Aspect"><strong>Focus</strong></td>
+        <td data-label="Web Design">Visual &amp; user experience design</td>
+        <td data-label="Web Development">Building websites &amp; apps functionality</td>
+        <td data-label="Software Development">Building software applications beyond web (desktop, mobile, embedded)</td>
+      </tr>
+      <tr>
+        <td data-label="Aspect"><strong>Main Goal</strong></td>
+        <td data-label="Web Design">Create attractive, user-friendly interfaces</td>
+        <td data-label="Web Development">Make websites/apps work smoothly and interactively</td>
+        <td data-label="Software Development">Develop software solutions for various platforms and purposes</td>
+      </tr>
+      <tr>
+        <td data-label="Aspect"><strong>Key Skills</strong></td>
+        <td data-label="Web Design">Graphic design, UI/UX principles, typography, color theory</td>
+        <td data-label="Web Development">HTML, CSS, JavaScript, backend languages, APIs</td>
+        <td data-label="Software Development">Programming languages (Java, C++, Python, etc.), algorithms, data structures</td>
+      </tr>
+      <tr>
+        <td data-label="Aspect"><strong>Tools Used</strong></td>
+        <td data-label="Web Design">Adobe XD, Figma, Sketch, Photoshop</td>
+        <td data-label="Web Development">VS Code, Git, Chrome DevTools, Postman</td>
+        <td data-label="Software Development">IDEs like Visual Studio, IntelliJ, debugging tools, version control</td>
+      </tr>
+      <tr>
+        <td data-label="Aspect"><strong>Output</strong></td>
+        <td data-label="Web Design">Website mockups, prototypes, wireframes</td>
+        <td data-label="Web Development">Fully functional websites and web apps</td>
+        <td data-label="Software Development">Desktop software, mobile apps, embedded systems, cloud services</td>
+      </tr>
+      <tr>
+        <td data-label="Aspect"><strong>Interdependency</strong></td>
+        <td data-label="Web Design">Designs guide developers on look and feel</td>
+        <td data-label="Web Development">Developers turn designs into working products</td>
+        <td data-label="Software Development">Software developers may build tools that help web development too</td>
+      </tr>
+      <tr>
+        <td data-label="Aspect"><strong>Typical Roles</strong></td>
+        <td data-label="Web Design">UI Designer, UX Designer, Graphic Designer</td>
+        <td data-label="Web Development">Frontend Developer, Backend Developer, Full Stack Developer</td>
+        <td data-label="Software Development">Software Engineer, Systems Developer, Application Developer</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h1>4-6. How to Explore New Websites and Think About Design and Features</h1>
+  <p>Exploring new websites effectively involves:</p>
+  <ul>
+    <li><strong>Analyze the User Interface:</strong> Observe layout, color schemes, typography, and overall user experience.</li>
+    <li><strong>Evaluate Features:</strong> Identify interactive components, navigation ease, responsiveness, and any unique functionalities.</li>
+    <li><strong>Consider Target Audience:</strong> Understand who the website is designed for and how it caters to their needs.</li>
+    <li><strong>Look for Trends:</strong> Notice modern design trends like minimalism, dark mode, animations, or micro-interactions.</li>
+    <li><strong>Take Notes:</strong> Document ideas, what you like or dislike, and potential improvements.</li>
+    <li><strong>Use Tools:</strong> Tools like Chrome DevTools or extensions can help inspect website structure and performance.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>4-7. How to Utilize AI Tools as a Developer?</h1>
+  <ul>
+    <li><strong>Code Assistance:</strong> Use AI-powered code completion and suggestion tools like GitHub Copilot or ChatGPT to speed up coding.</li>
+    <li><strong>Bug Detection:</strong> Leverage AI to detect bugs and suggest fixes automatically.</li>
+    <li><strong>Testing Automation:</strong> Generate test cases or automate testing with AI-driven tools.</li>
+    <li><strong>Documentation:</strong> Automatically generate or improve documentation using AI summarization.</li>
+    <li><strong>Learning & Prototyping:</strong> Use AI to learn new frameworks, get examples, or quickly prototype ideas.</li>
+    <li><strong>Chatbots & Assistants:</strong> Integrate AI chatbots into projects for better UX or internal tool automation.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>How to Use VS Code Terminal, CMD, and PowerShell (Part One)</h1>
+  <p>Understanding and using terminals effectively can boost productivity. Key points include:</p>
+  <ul>
+    <li><strong>VS Code Terminal:</strong> Integrated terminal inside VS Code allows you to run command-line commands without leaving the editor.</li>
+    <li><strong>Opening Terminal:</strong> Use <code>Ctrl + `</code> to toggle terminal in VS Code.</li>
+    <li><strong>Running Commands:</strong> Run build commands, git commands, or npm scripts directly.</li>
+    <li><strong>Basic CMD & PowerShell:</strong> Windows Command Prompt (CMD) and PowerShell are command-line interfaces for Windows OS.</li>
+    <li><strong>Differences:</strong> PowerShell is more powerful and supports scripting with objects, while CMD is more basic and traditional.</li>
+  </ul>
+</section>
+
+<section>
+  <h1>4-9. How to Use Terminal (Part Two)</h1>
+  <ul>
+    <li><strong>Navigation:</strong> Use commands like <code>cd</code> to change directories, <code>ls</code> or <code>dir</code> to list files.</li>
+    <li><strong>File Operations:</strong> Create (<code>touch</code> or <code>New-Item</code>), delete (<code>rm</code> or <code>del</code>), and move files.</li>
+    <li><strong>Running Scripts:</strong> Execute scripts or programs directly from terminal.</li>
+    <li><strong>Using Git:</strong> Perform version control commands like <code>git status</code>, <code>git commit</code>, and <code>git push</code>.</li>
+    <li><strong>Customizing Terminal:</strong> Adjust colors, fonts, and behaviors to improve comfort and efficiency.</li>
+  </ul>
+</section>
+
+</main>
+</body>
+</html>
