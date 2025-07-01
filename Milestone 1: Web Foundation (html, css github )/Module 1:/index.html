@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Basic Notes (Bangla)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800 p-4 sm:p-8 font-sans">
+    <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-xl p-6 sm:p-10 space-y-6 fade-in">
+      <h1 class="text-3xl sm:text-4xl font-bold text-center text-blue-600">HTML Basic Notes (Bangla)</h1>
+
+      <!-- Structure Section -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">📌 Structure of HTML</h2>
+        <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Document Title&lt;/title&gt;
+    &lt;link rel="icon" href="favicon.ico" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Website content here --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <p class="mt-2 text-gray-600">এইটা হলো একটি HTML5 ডকুমেন্টের গঠন।</p>
+      </section>
+
+      <!-- Paragraph, Bold, Strong -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">📄 Paragraph, Bold, Strong</h2>
+        <div class="grid gap-4">
+          <div>
+            <p class="font-medium">Paragraph Tag:</p>
+            <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></pre>
+          </div>
+          <div>
+            <p class="font-medium">Bold & Strong Tag:</p>
+            <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;b&gt;This is bold&lt;/b&gt;
+&lt;strong&gt;This is strong&lt;/strong&gt;</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Semantic vs Non-semantic -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">✨ Semantic vs Non-semantic</h2>
+        <p class="text-gray-600">Semantic tags ব্রাউজার ও স্ক্রিন রিডার সহজে বুঝতে পারে।</p>
+        <ul class="list-disc list-inside text-gray-700">
+          <li><strong>Semantic:</strong> &lt;strong&gt;, &lt;em&gt;, &lt;header&gt;, &lt;footer&gt;</li>
+          <li><strong>Non-semantic:</strong> &lt;b&gt;, &lt;i&gt;, &lt;div&gt;</li>
+        </ul>
+      </section>
+
+      <!-- Inline vs Block -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">📏 Inline vs Block Elements</h2>
+        <div class="overflow-auto">
+          <table class="table-auto border border-gray-300 text-left w-full">
+            <thead class="bg-blue-100">
+              <tr>
+                <th class="border px-4 py-2">Inline Tags</th>
+                <th class="border px-4 py-2">Block Tags</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border px-4 py-2">&lt;strong&gt;, &lt;a&gt;, &lt;span&gt;</td>
+                <td class="border px-4 py-2">&lt;p&gt;, &lt;div&gt;, &lt;h1&gt;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Lists -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">📝 HTML Lists</h2>
+        <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;ol&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tea&lt;/li&gt;
+  &lt;li&gt;Coffee&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      </section>
+
+      <!-- Anchor Tag -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">🔗 Anchor Tag</h2>
+        <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;a href="https://example.com" target="_blank"&gt;Visit Example&lt;/a&gt;
+&lt;a href="document.pdf" download&gt;Download PDF&lt;/a&gt;</code></pre>
+      </section>
+
+      <!-- Image -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">🖼️ Image Tag</h2>
+        <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;img src="img.jpg" alt="A beautiful image" /&gt;</code></pre>
+      </section>
+
+      <!-- Input Tags -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">📥 HTML Input Tags</h2>
+        <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;form&gt;
+  &lt;input type="text" name="username" placeholder="Enter name" /&gt;
+  &lt;input type="email" name="email" placeholder="Enter email" /&gt;
+  &lt;input type="date" name="dob" /&gt;
+  &lt;input type="file" /&gt;
+  &lt;input type="submit" value="Submit" /&gt;
+&lt;/form&gt;</code></pre>
+
+        <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm mt-2"><code>&lt;select name="drink"&gt;
+  &lt;option value="tea"&gt;Tea&lt;/option&gt;
+  &lt;option value="coffee"&gt;Coffee&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+      </section>
+
+      <!-- Special Tags -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">🛠️ Special Tags</h2>
+        <ul class="list-disc list-inside text-gray-700">
+          <li>Comment: <code>&lt;!-- This is a comment --&gt;</code></li>
+          <li>Self-closing: <code>&lt;img /&gt;</code>, <code>&lt;input /&gt;</code>, <code>&lt;br /&gt;</code></li>
+        </ul>
+      </section>
+
+      <!-- Boilerplate -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">⚙️ Boilerplate (VS Code Shortcut)</h2>
+        <pre class="bg-gray-100 rounded p-4 overflow-auto text-sm"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;My Website&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;nav&gt;Navbar&lt;/nav&gt;
+    &lt;main&gt;Content&lt;/main&gt;
+    &lt;footer&gt;Footer&lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </section>
+
+      <!-- What is HTML -->
+      <section>
+        <h2 class="text-2xl font-semibold mb-2 text-gray-700">🔍 What is HTML?</h2>
+        <p class="text-gray-600">HTML = <strong>HyperText Markup Language</strong></p>
+        <ul class="list-disc list-inside text-gray-700">
+          <li><strong>HyperText</strong>: লিঙ্ক বা রেফারেন্স</li>
+          <li><strong>Markup</strong>: ট্যাগ দ্বারা গঠিত</li>
+          <li><strong>Language</strong>: কমিউনিকেশনের মাধ্যম</li>
+        </ul>
+      </section>
+
+    </div>
+  </body>
+</html>
