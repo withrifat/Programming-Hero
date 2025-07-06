@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pitha Ghor</title>
+        <style>
+            form label {
+                display: block;
+                margin-top: 8px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>
+            <section>
+                <h2>Welcome to Pitha Ghor</h2>
+                <form style="display: block;">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="auto" required></textarea>
+                    <fieldset style="display: block;">
+                        <legend> Pitha info </legend>
+                        <label for="chitoy">Chitoipitha</label>
+                        <input type="radio" name="pitha" id="chitoy">
+                        <label for="paisapta">Paisapta</label>
+                        <input type="radio" name="pitha" id="paisapta">
+                        <label for="vapa">Vapa Pitha</label>
+                        <input type="radio" name="pitha" id="vapa">
+                    </fieldset>
+                    <button type="submit">Submit</button>
+                    <input type="reset" value="Reset">
+                </form>
+                <form style="max-width: 400px; margin: 30px auto; font-family: Arial, sans-serif;">
+                    <fieldset
+                        style="border: 1px solid #ccc; padding: 20px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); background-color: #f9f9f9;">
+                        <legend style="padding: 0 10px; font-weight: bold; font-size: 18px; color: #333;">ব্যক্তিগত তথ্য
+                        </legend>
+                        <label style="display: block; margin-bottom: 8px; color: #555;">নাম:</label>
+                        <input type="text" name="name"
+                            style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
+                        <label style="display: block; margin-bottom: 8px; color: #555;">বয়স:</label>
+                        <input type="number" name="age"
+                            style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
+                        <label style="display: block; margin-bottom: 8px; color: #555;">ইমেল:</label>
+                        <input type="email" name="email"
+                            style="width: 100%; padding: 8px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #ccc;">
+                        <button type="submit"
+                            style="background-color: #007BFF; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer;">
+                            জমা দিন </button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav ul {
+    display: flex;
+    justify-content: space-between;
+
+}
+nav li {
+    list-style: none;
+    margin: 2rem 2rem;
+}
+nav li a {
+    text-decoration: none;
+    color: #163bb3;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+na li:hover {
+    color: #f00;
+}

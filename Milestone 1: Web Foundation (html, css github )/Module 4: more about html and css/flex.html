@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .item {
+            border: 2px solid tomato;
+            padding: 1rem;
+            height: 100px;
+            font-size: 3rem;
+        }
+        .box_container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .box{
+            font-size: 3rem;
+            height: 150px;
+            width: 150px;
+            border: 2px solid slateblue;
+            text-align: center;
+            align-items: center;
+        }
+        .user {
+            border: 2px solid skyblue;
+            height: 150px;
+            width: 150px;
+            text-align: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to FlexBox</h1>
+    <p>This is a simple demonstration of Flexbox layout.</p>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+        <div class="item">Item 4</div>
+        <div class="item">Item 5</div>
+        <div class="item">Item 6</div>
+    </div>
+
+    <div class="box_container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+        <div class="box">10</div>
+    </div>
+    <div class="card_container">
+        <!-- .user{user-$}*4 -->
+        <div class="user">user-1</div>
+        <div class="user">user-2</div>
+        <div class="user">user-3</div>
+        <div class="user">user-4</div>
+    </div>
+</body>
+</html>
