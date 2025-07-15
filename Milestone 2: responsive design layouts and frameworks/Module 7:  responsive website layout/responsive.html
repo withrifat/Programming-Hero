@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A responsive grid of 20 animated cards using HTML and CSS Grid." />
+  <meta name="keywords" content="HTML, CSS, Responsive Grid, Cards, Animation" />
+  <meta name="author" content="Your Name" />
+  <title>Animated Responsive Grid Cards</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .card:nth-child(2) { animation-delay: 0.05s; }
+    .card:nth-child(3) { animation-delay: 0.1s; }
+    .card:nth-child(4) { animation-delay: 0.15s; }
+    .card:nth-child(5) { animation-delay: 0.2s; }
+    .card:nth-child(6) { animation-delay: 0.25s; }
+    .card:nth-child(7) { animation-delay: 0.3s; }
+    .card:nth-child(8) { animation-delay: 0.35s; }
+    .card:nth-child(9) { animation-delay: 0.4s; }
+    .card:nth-child(10) { animation-delay: 0.45s; }
+    .card:nth-child(11) { animation-delay: 0.5s; }
+    .card:nth-child(12) { animation-delay: 0.55s; }
+    .card:nth-child(13) { animation-delay: 0.6s; }
+    .card:nth-child(14) { animation-delay: 0.65s; }
+    .card:nth-child(15) { animation-delay: 0.7s; }
+    .card:nth-child(16) { animation-delay: 0.75s; }
+    .card:nth-child(17) { animation-delay: 0.8s; }
+    .card:nth-child(18) { animation-delay: 0.85s; }
+    .card:nth-child(19) { animation-delay: 0.9s; }
+    .card:nth-child(20) { animation-delay: 0.95s; }
+
+    @keyframes fadeUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 1rem;
+    }
+
+    .card-content h2 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      .card-content h2 {
+        font-size: 1rem;
+      }
+
+      .card-content p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Animated Grid Cards</h1>
+  <section class="grid">
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=1" alt="Random image 1">
+      <div class="card-content">
+        <h2>Card Title 1</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=2" alt="Random image 2">
+      <div class="card-content">
+        <h2>Card Title 2</h2>
+        <p>Vestibulum at eros. Aenean eu leo quam.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=3" alt="Random image 3">
+      <div class="card-content">
+        <h2>Card Title 3</h2>
+        <p>Curabitur blandit tempus porttitor.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=4" alt="Random image 4">
+      <div class="card-content">
+        <h2>Card Title 4</h2>
+        <p>Donec ullamcorper nulla non metus auctor fringilla.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=5" alt="Random image 5">
+      <div class="card-content">
+        <h2>Card Title 5</h2>
+        <p>Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=6" alt="Random image 6">
+      <div class="card-content">
+        <h2>Card Title 6</h2>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=7" alt="Random image 7">
+      <div class="card-content">
+        <h2>Card Title 7</h2>
+        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=8" alt="Random image 8">
+      <div class="card-content">
+        <h2>Card Title 8</h2>
+        <p>Maecenas sed diam eget risus varius blandit.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=9" alt="Random image 9">
+      <div class="card-content">
+        <h2>Card Title 9</h2>
+        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=10" alt="Random image 10">
+      <div class="card-content">
+        <h2>Card Title 10</h2>
+        <p>Etiam porta sem malesuada magna mollis euismod.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=11" alt="Random image 11">
+      <div class="card-content">
+        <h2>Card Title 11</h2>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=12" alt="Random image 12">
+      <div class="card-content">
+        <h2>Card Title 12</h2>
+        <p>Fusce dapibus, tellus ac cursus commodo.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=13" alt="Random image 13">
+      <div class="card-content">
+        <h2>Card Title 13</h2>
+        <p>Morbi leo risus, porta ac consectetur ac.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=14" alt="Random image 14">
+      <div class="card-content">
+        <h2>Card Title 14</h2>
+        <p>Nulla vitae elit libero, a pharetra augue.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=15" alt="Random image 15">
+      <div class="card-content">
+        <h2>Card Title 15</h2>
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=16" alt="Random image 16">
+      <div class="card-content">
+        <h2>Card Title 16</h2>
+        <p>Integer posuere erat a ante venenatis dapibus.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=17" alt="Random image 17">
+      <div class="card-content">
+        <h2>Card Title 17</h2>
+        <p>Aenean lacinia bibendum nulla sed consectetur.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=18" alt="Random image 18">
+      <div class="card-content">
+        <h2>Card Title 18</h2>
+        <p>Vestibulum id ligula porta felis euismod semper.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=19" alt="Random image 19">
+      <div class="card-content">
+        <h2>Card Title 19</h2>
+        <p>Maecenas sed diam eget risus varius blandit sit amet.</p>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://picsum.photos/400/200?random=20" alt="Random image 20">
+      <div class="card-content">
+        <h2>Card Title 20</h2>
+        <p>Donec id elit non mi porta gravida at eget metus.</p>
+      </div>
+    </article>
+  </section>
+</body>
+</html>
