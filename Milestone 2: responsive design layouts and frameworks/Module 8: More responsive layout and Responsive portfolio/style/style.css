@@ -1,0 +1,20 @@
+.container{
+    display: grid;
+    background-color: lightgreen;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 200px) 50px 50px;
+}
+.box{
+    background-color: gray;
+    transition: all;
+
+}
+.box:hover{
+    background-color: aliceblue;
+    transition: all;
+    transform: scale(.01);
+}
+.box-1{
+    grid-row: span 5;
+    background: lightcoral;
+}

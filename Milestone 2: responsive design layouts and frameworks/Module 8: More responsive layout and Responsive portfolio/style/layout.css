@@ -1,0 +1,48 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* background-color: bisque;
+    border: 2px solid tomato; */
+}
+header , nav, main, aside, footer {
+    border: 2px solid tomato;
+    background-color: bisque;
+}
+body{
+    display: grid;
+    grid-template-areas: 
+    "header header header header"
+    "nav main main sidebar"
+    "nav main main advertise"
+    "footer footer footer"
+    ;
+}
+header{
+    grid-area: header;
+}
+nav{
+    grid-area: nav;
+}
+ ul li{
+    text-decoration: none;
+}
+li a{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+main{
+    grid-area: main;
+}
+sidebar{
+    grid-area: sidebar;
+}
+footer{
+    grid-area: footer;
+}
+.sidebar{
+    grid-area: sidebar;
+}
+.advertise{
+    grid-area: advertise;
+}
