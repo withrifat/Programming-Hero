@@ -1,0 +1,52 @@
+# Node.js dependencies
+node_modules/
+
+# Build output folders
+dist/
+build/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE/editor folders and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# npm cache folder
+.npm/
+
+# Optional npm cache directory
+.cache/
+
+# Debug folders
+/debug/
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Parcel-bundler cache (if using Parcel)
+.cache/
+
+# Misc
+*.tgz
+*.zip
+*.tar.gz
