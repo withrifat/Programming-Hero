@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event bubble</title>
+    <style>
+        body{
+            border: 2px solid red;
+            margin: 2px;
+        }
+        section{
+            border: 2px solid green;
+            margin: 2px;
+        }
+        ol{
+            border: 2px solid purple;
+            margin: 2px;
+        }
+        li{
+            border: 2px solid blue;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Explore event bubble</h1>
+    <section>
+        <h3>List of things</h3>
+        <!-- ul>li#item-$*6>lorem2 -->
+        <ol>
+            <li id="item-1">Lorem, ipsum dolor.</li>
+            <li id="item-2">Numquam, similique alias!</li>
+            <li id="item-3">Recusandae, dolor qui.</li>
+            <li id="item-4">Fuga, doloribus officiis.</li>
+            <li id="item-5">Animi, fuga possimus?</li>
+            <li id="item-6">Nisi, cupiditate culpa.</li>
+        </ol>
+    </section>
+    <script>
+        // ইভেন্ট আস্তে আস্তে capture hoi আস্তে আস্তে বাবল হয় 
+        document.getElementById('item-2').addEventListener('click', function(event){
+            console.log('Item 2 clicked');
+            // event.stopPropagation();  // it's works when
+            event.stopImmediatePropagation(); 
+        })
+    </script>
+</body>
+</html>

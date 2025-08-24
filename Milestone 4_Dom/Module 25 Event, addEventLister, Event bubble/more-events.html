@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>more events</title>
+</head>
+<body>
+    <button id="btn-mouse">micky mouse minnie</button>
+    <input type="text" placeholder="Your Name" id="input-name">
+    <input type="email" placeholder="Your Email" id="input-email">
+
+
+
+    <script>
+        document.getElementById('btn-mouse').addEventListener('mouseenter', function(){
+            console.log("event triggered");
+        })
+        document.getElementById('input-name').addEventListener('focus', function(){
+            console.log("input focused");
+        })
+        document.getElementById('input-email').addEventListener('click', function(){
+            console.log("email input clicked");
+        })
+        document.getElementById('input-name').addEventListener('blur', function(){
+            console.log("input name done");
+        })
+        document.getElementById('input-email').addEventListener('blur', function(){
+            console.log("email input done");
+        })
+        document.getElementById('input-email').addEventListener('keydown', function(event){
+            console.log("typing", event.target.value);
+        })
+    </script>
+</body>
+</html>

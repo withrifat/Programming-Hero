@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event handlar</title>
+</head>
+<body>
+    <h1 id="eventTitle">Event handlar</h1>
+    <button id="updateTitleBtn">update title</button>
+
+    <div>
+        <button id="clickMeBtn">Click me</button>
+        <p id="clickMeMessage"></p>
+    </div>
+    <br>
+    <!-- handle input ext -->
+     <!-- <form action=""> -->
+        <input type="text" placeholder="your name enter" id="inputField"> <br>
+        <button id="submitBtn">Submit</button>
+        <p id="inputMessage"></p>
+     <!-- </form> -->
+    <script>
+        document.getElementById('updateTitleBtn').addEventListener('click', function(){
+            document.getElementById('eventTitle').innerText = 'title updated by event handlar';
+        })
+
+        document.getElementById('clickMeBtn').addEventListener('click', function(){
+            document.getElementById('clickMeMessage').innerText = 'button clicked';
+        })
+        // set event lisner
+        document.getElementById('submitBtn').addEventListener('click', function(event){
+            const nameInput = document.getElementById('inputField');
+            console.log(nameInput.value);
+            name = nameInput.value;
+            document.getElementById('inputMessage').innerText = 'your name is: ' + name;
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Event delegate</title>
+        <style>
+            body {
+                border: 2px solid red;
+                margin: 2px;
+            }
+
+            section {
+                border: 2px solid green;
+                margin: 2px;
+            }
+
+            ol {
+                border: 2px solid purple;
+                margin: 2px;
+            }
+
+            li {
+                border: 2px solid blue;
+                margin: 2px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>explore the concept of the delegate</h2>
+        <button id="addItem">Add new Item</button>
+        <ol id="item-list">
+            <li class="item">my awesome item - 1</li>
+            <li class="item">my awesome item - 2</li>
+            <li class="item">my awesome item - 3</li>
+            <li class="item">my awesome item - 4</li>
+            <li class="item">my awesome item - 5</li>
+        </ol>
+        <script>
+            // const items = document.getElementsByClassName('item');
+            // for(const item of items){
+            //     item.addEventListener('click', function(event) {
+            //         event.target.parentNode.removeChild(event.target);
+            //     });
+            // }
+
+
+
+            // we should use this in parent 
+            // const items = document.getElementsByClassName('item');
+            // Array.from(items).forEach(item => {
+            //     item.addEventListener('click', function (event) {
+            //         event.target.remove();
+            //     });
+            // });
+
+
+            document.getElementById('item-list').addEventListener('click', function(event){
+                // event delegation
+                event.target.parentNode.removeChild(event.target); 
+            });
+
+            // add a new item
+            document.getElementById('addItem').addEventListener('click', function(){
+                // parent to be added to
+                const ol = document.getElementById('item-list');
+                // new item
+                const li = document.createElement('li');
+                li.innerText = 'Brand new line Added';
+                li.classList.add('item');
+                // append child 
+                ol.appendChild(li);
+            })
+        </script>
+    </body>
+</html>

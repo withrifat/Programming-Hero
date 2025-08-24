@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            margin: 0 auto;
+            min-width: 1400px;
+            background: #d65454;
+            padding: 2rem;
+        }
+        .comment {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 10PX;
+            padding: 2rem;
+        }
+        .comment:hover {
+            background: #f0f0f0;
+        }
+        .comment-form {
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>my awesome comment box write what in your mind</h1>
+    <section>
+        <h3>All comments here </h3>
+        <div id="parentDiv">
+            <p class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, explicabo?</p>
+            <p class="comment">Maiores necessitatibus tempore optio aliquid nemo excepturi accusamus veritatis modi!</p>
+            <p class="comment">Cumque magni minima iure ut eius ab harum in fugit?</p>
+        </div>
+        <div>
+            <p id="commentOutput" class="comment"></p>
+        </div>
+        <!-- <form > -->
+            <textarea id="commentInput" placeholder="Write your comment here..." cols="30" rows="5"></textarea>
+            <br> <br>
+            <button type="post">Post Comment</button>
+            <br> <br>
+        <!-- </form> -->
+    </section>
+
+    <script>
+
+        document.getElementById("commentInput").addEventListener("input", function() {
+            // get the written text 
+            const comment = document.getElementById('commentInput').value;
+            //  get the parent node where to publish comment 
+            const parentDiv = document.getElementById('parentDiv');
+            console.log(parentDiv);
+            
+            // step 4 create a comment 
+            const commentElement = document.createElement('p');
+            commentElement.classList.add('comment');
+            commentElement.textContent = comment;
+            // append the new p tag to the parent node 
+            parentDiv.appendChild(commentElement);
+            //  
+        });
+    </script>
+</body>
+</html>
