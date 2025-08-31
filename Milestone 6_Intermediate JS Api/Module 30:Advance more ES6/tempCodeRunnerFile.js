@@ -1,1 +1,3 @@
-const numbers= [4, 8, 2, 3, 5, 33,55,33, 22, 33, 55];
+student.getScore();
+// student.getScoreArrow();
+// console.log('ultimate this', this)
