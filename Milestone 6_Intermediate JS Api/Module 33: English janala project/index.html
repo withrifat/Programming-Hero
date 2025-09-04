@@ -53,20 +53,44 @@
         </header>
         <!-- Hero section -->
         <section class="container mx-auto my-3 py-5 px-4 md:px-8 flex flex-col md:flex-row gap-8 items-center w-11/12">
-            <div class="flex-1">
-                <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">
+            <div class="flex-1 flex flex-col gap-6">
+                <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-4">
                     <span class="text-[#00BCFF]">English</span> is Easy!!
                 </h1>
                 <p class="font-bangla text-base md:text-lg max-w-full md:max-w-[80%]"> আজ থেকেই আপনার ভাষা শেখার যাত্রা
                     শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে
                     যাবে অন্য একটি Level এ </p>
+                <div class="flex flex-col gap-4 mt-4 max-w-[300px]">
+                    <input type="text" placeholder="Enter your name"
+                        class="input input-bordered w-full sm:w-auto flex-1" />
+                    <input type="password" placeholder="*********"
+                        class="input input-bordered w-full sm:w-auto flex-1" />
+                    <button class="btn bg-purple-950 text-white w-full sm:w-auto">Get Started</button>
+                </div>
             </div>
             <div class="flex-1 mt-6 md:mt-0 flex justify-center">
                 <img src="assets/hero-student.png" alt="" class="w-full max-w-md md:max-w-full object-contain">
             </div>
         </section>
+        <!--  main section -->
+        <main>
+            <h1 class="text-3xl md:text-4xl font-bold mb-2 md:mb-7 text-center">
+                <span class="text-[#00BCFF]">Let's</span> Learn Vocabulary
+            </h1>
+            <div id="levelContainer" class="flex flex-wrap mx-auto justify-center items-center gap-4 max-w-[60%]">
 
-        
+            </div>
+        </main>
+        <!-- select section -->
+        <section id="wordContainer" class="bg-gray-200 p-10 w-11/12 mx-auto my-19 grid grid-cols-3 gap-5">
+            <!-- <div class="my-10 p-4">
+                <p>আপনি এখনো কোন Lesson Select করেন </p>
+                <h1 class="text-3xl">
+                    একটি Lesson Select করুন।
+                </h1>
+            </div> -->
+
+        </section>
         <script src="main.js"></script>
     </body>
 </html>
