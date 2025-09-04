@@ -13,9 +13,60 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <!-- nav bar  -->
+        <header class="navbar bg-[#edf6ff] shadow-sm px-4 md:px-8">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <label tabindex="0" class="btn btn-ghost lg:hidden">
+                        <i class="fas fa-bars text-xl"></i>
+                    </label>
+                    <ul tabindex="0"
+                        class="menu menu-compact dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow">
+                        <li>
+                            <a class="flex items-center gap-2">
+                                <i class="fas fa-question-circle"></i> FAQ </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center gap-2">
+                                <i class="fas fa-book-open"></i> Learn </a>
+                        </li>
+                        <li>
+                            <a class="flex items-center gap-2">
+                                <i class="fas fa-sign-out-alt"></i> Logout </a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="btn btn-ghost flex items-center gap-1">
+                    <span class="text-lg font-bold">English</span>
+                    <img src="assets/logo.png" alt="">
+                    <span class="font-bangla text-lg font-semibold">জানালা</span>
+                </a>
+            </div>
+            <div class="navbar-end hidden lg:flex gap-2 items-center">
+                <button class="btn btn-outline btn-primary flex items-center gap-2">
+                    <i class="fas fa-question-circle"></i> FAQ </button>
+                <button class="btn btn-outline btn-primary flex items-center gap-2">
+                    <i class="fas fa-book-open"></i> Learn </button>
+                <button class="btn btn-outline btn-primary flex items-center gap-2">
+                    <i class="fas fa-sign-out-alt"></i> Logout </button>
+            </div>
+        </header>
+        <!-- Hero section -->
+        <section class="container mx-auto my-3 py-5 px-4 md:px-8 flex flex-col md:flex-row gap-8 items-center w-11/12">
+            <div class="flex-1">
+                <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8">
+                    <span class="text-[#00BCFF]">English</span> is Easy!!
+                </h1>
+                <p class="font-bangla text-base md:text-lg max-w-full md:max-w-[80%]"> আজ থেকেই আপনার ভাষা শেখার যাত্রা
+                    শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে
+                    যাবে অন্য একটি Level এ </p>
+            </div>
+            <div class="flex-1 mt-6 md:mt-0 flex justify-center">
+                <img src="assets/hero-student.png" alt="" class="w-full max-w-md md:max-w-full object-contain">
+            </div>
+        </section>
+
         
-
-
         <script src="main.js"></script>
     </body>
 </html>
