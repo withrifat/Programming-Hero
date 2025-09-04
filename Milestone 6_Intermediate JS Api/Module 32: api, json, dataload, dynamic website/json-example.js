@@ -17,12 +17,14 @@ const jsonData = `{
 // Parsing JSON data
 const parsedData = JSON.parse(jsonData);
 console.log(parsedData.name); // Output: John Doe
+console.log(typeof parsedData);
 
 // Converting an object to a JSON string
 const person = {
   name: "Jane Doe",
   age: 25,
-  isStudent": true
+  isStudent: true ,
 };
 const jsonString = JSON.stringify(person);
 console.log(jsonString); // Output: {"name":"Jane Doe","age":25,"isStudent":true}
+console.log(typeof jsonString);

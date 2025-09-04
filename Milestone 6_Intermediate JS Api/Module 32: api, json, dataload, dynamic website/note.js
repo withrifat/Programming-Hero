@@ -33,7 +33,7 @@ console.log(parsedData.name); // Output: John Doe
 const person = {
   name: "Jane Doe",
   age: 25,
-  isStudent": true
+  isStudent: true,
 };
 const jsonString = JSON.stringify(person);
 console.log(jsonString); // Output: {"name":"Jane Doe","age":25,"isStudent":true}
