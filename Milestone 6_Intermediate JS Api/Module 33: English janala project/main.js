@@ -4,16 +4,31 @@ const loadLessons =()=> {
     .then((res)=>res.json())
     .then(json => displayLesson(json.data))
 }
-const loadLevelWord = (id) => {
+const removeActive=()=>{  // this function for remove "active" class
+    const lessoButtons = document.querySelectorAll(".lesson-btn")
+    lessoButtons.forEach(btn=> btn.classList.remove("active"));
+}
+const loadLevelWord = (id) => {  // this arrow function for 
     const url = `https://openapi.programming-hero.com/api/level/${id}`
     fetch(url)
     .then((res)=>res.json())
-    .then(json => displayLevelWord(json.data))
+    .then(json => {
+        removeActive();  // function call for remove all active btn 
+        const clickBtn = document.getElementById(`lesson-btn-${id}`)  // select button 
+        clickBtn.classList.add("active");  // add active class clicked button
+        displayLevelWord(json.data)
+    })
 }
-const displayLevelWord = (words)=>{
+const loadWordDetail = async (id)=>{  // word details 
+    const url=`https://openapi.programming-hero.com/api/word/${id}`
+    const res =await fetch(url)
+    const details = await res.json()
+    console.log(details);
+}
+const displayLevelWord = (words)=>{  // show display words
     const wordContainer = document.getElementById("wordContainer");
     wordContainer.innerHTML="";
-    if(words.length == 0){
+    if(words.length == 0){  // error's show 
         wordContainer.innerHTML = `
             <div class="my-10 p-4 col-span-full text-center flex flex-col items-center">
                 <img class="h-20 w-20" src="assets/alert-error.png" alt="">
@@ -25,7 +40,7 @@ const displayLevelWord = (words)=>{
         `
         return;
     }
-    words.forEach((word)=>{
+    words.forEach((word)=>{  // error for words cards 
         const card = document.createElement('div');
         card.innerHTML=`
             <div class="bg-white rounded-xl shadow-sm text-center p-10 px-5 space-y-4">
@@ -33,7 +48,7 @@ const displayLevelWord = (words)=>{
                 <p class="font-semibold ">Meaning /Pronunciation </p>
                 <div class="text-2xl font-semibold font-bangla">${word.meaning ?word.meaning:"অর্থ পাওয়া যায়নি"}/${word.pronunciation ? word.pronunciation: "উচ্চারণ পাওয়া যায়নি"}</div>
                 <div class="flex justify-between items-center">
-                    <button class="btn bg-[#1a91ff10] hover:bg-[#1a91ff80]">
+                    <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1a91ff10] hover:bg-[#1a91ff80]">
                         <i class="fa-solid fa-circle-info"></i>
                     </button>
                     <button class="btn bg-[#1a91ff10] hover:bg-[#1a91ff80]">
@@ -45,7 +60,7 @@ const displayLevelWord = (words)=>{
         wordContainer.append(card);
     })
 }
-const displayLesson = (lessons) =>{
+const displayLesson = (lessons) =>{  // show button lesson name 
     // 1. get the container & empty
     const levelContainer = document.getElementById('levelContainer');
     levelContainer.innerHTML="";
@@ -54,7 +69,7 @@ const displayLesson = (lessons) =>{
         //3. create element 
         const btnDiv = document.createElement("div");
         btnDiv.innerHTML=`
-            <button id="lesson-btn-${lesson.level_no}"  onclick="loadLevelWord(${lesson.level_no})" class="btn btn-outline btn-primary flex items-center gap-3">
+            <button id="lesson-btn-${lesson.level_no}"  onclick="loadLevelWord(${lesson.level_no})" class="btn btn-outline btn-primary flex items-center gap-3 lesson-btn">
             <i class="fa-solid fa-book-open"></i> ${lesson.lessonName} - ${lesson.level_no} </button>
         `;
         // 4. append into container
@@ -62,4 +77,4 @@ const displayLesson = (lessons) =>{
     })
 }
 
-loadLessons()
+loadLessons()  33-8 ----> 5:53
