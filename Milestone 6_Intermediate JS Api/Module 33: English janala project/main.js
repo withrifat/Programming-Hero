@@ -1,18 +1,19 @@
-const createElements = (arr) => {  // when any array come here this function return ....>
-    const htmlElemets = arr.map((el)=> `<span class="btn">${el}</span>`);
-    const join = htmlElemets.join(" ");
-    return join;
-}
-// for spinner 
-const manageSpinner =(status)=>{
-    if(status==true){
-        document.getElementById("spinner").classList.remove("hidden");
-        document.getElementById("wordContainer").classList.add("hidden");
-    }else{
-        document.getElementById("wordContainer").classList.remove("hidden");
-        document.getElementById("spinner").classList.add("hidden");
-    }
-}
+const createElements = (arr) => {
+  // when any array come here this function return ....>
+  const htmlElemets = arr.map((el) => `<span class="btn">${el}</span>`);
+  const join = htmlElemets.join(' ');
+  return join;
+};
+// for spinner
+const manageSpinner = (status) => {
+  if (status == true) {
+    document.getElementById('spinner').classList.remove('hidden');
+    document.getElementById('wordContainer').classList.add('hidden');
+  } else {
+    document.getElementById('wordContainer').classList.remove('hidden');
+    document.getElementById('spinner').classList.add('hidden');
+  }
+};
 const loadLessons = () => {
   fetch('https://openapi.programming-hero.com/api/levels/all')
     .then((res) => res.json())
@@ -24,7 +25,7 @@ const removeActive = () => {
   lessoButtons.forEach((btn) => btn.classList.remove('active'));
 };
 const loadLevelWord = (id) => {
-    manageSpinner(true)  // spinner visible 
+  manageSpinner(true); // spinner visible
   // this arrow function for
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
   fetch(url)
@@ -48,7 +49,9 @@ const displayWordDetails = (word) => {
   const detailsBox = document.getElementById('detailsContainer');
   detailsBox.innerHTML = `
                 <div class="">
-                    <h2 class="text-2xl font-bold">${word.word} ( <i class="fa-solid fa-microphone-lines"></i>:${word.pronunciation})</h2>
+                    <h2 class="text-2xl font-bold">${word.word} ( <i class="fa-solid fa-microphone-lines"></i>:${
+    word.pronunciation
+  })</h2>
                 </div>
                 <div class="">
                     <h2 class=" font-bold">meaning</h2>
@@ -79,7 +82,7 @@ const displayLevelWord = (words) => {
                 </h1>
             </div>
         `;
-     manageSpinner(false) // stop spinner    
+    manageSpinner(false); // stop spinner
     return;
   }
   words.forEach((word) => {
@@ -90,8 +93,8 @@ const displayLevelWord = (words) => {
                 <h2 class="font-bold text-2xl">${word.word ? word.word : 'শব্দ পাওয়া যায়নি'}</h2>
                 <p class="font-semibold ">Meaning /Pronunciation </p>
                 <div class="text-2xl font-semibold font-bangla">${word.meaning ? word.meaning : 'অর্থ পাওয়া যায়নি'}/${
-      word.pronunciation ? word.pronunciation : 'উচ্চারণ পাওয়া যায়নি'
-    }</div>
+                word.pronunciation ? word.pronunciation : 'উচ্চারণ পাওয়া যায়নি'
+                }</div>
                 <div class="flex justify-between items-center">
                     <button onclick="loadWordDetail(${word.id})" class="btn bg-[#1a91ff10] hover:bg-[#1a91ff80]">
                         <i class="fa-solid fa-circle-info"></i>
@@ -104,7 +107,7 @@ const displayLevelWord = (words) => {
         `;
     wordContainer.append(card);
   });
-  manageSpinner(false)  // spinner hide 
+  manageSpinner(false); // spinner hide
 };
 const displayLesson = (lessons) => {
   // show button lesson name
@@ -125,5 +128,3 @@ const displayLesson = (lessons) => {
 };
 
 loadLessons();
-
-
