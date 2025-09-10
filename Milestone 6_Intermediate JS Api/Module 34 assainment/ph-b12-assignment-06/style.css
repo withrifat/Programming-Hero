@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&display=swap');
+*{
+  font-family: "Inder", sans-serif;
+}
+/* active button
+ */
+ .active {
+    background-color: #15803D;
+    color: white;
+}
