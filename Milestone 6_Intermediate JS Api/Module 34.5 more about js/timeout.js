@@ -11,4 +11,5 @@ const timeOutId2 = setTimeout(() => {
 console.log('timoutId', timeOutId, timeOutId2)
 
 console.log(4);
+
 console.log(5);

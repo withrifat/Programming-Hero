@@ -7,8 +7,9 @@ const intervalId = setInterval(() => {
     if (count > 10) {
         clearInterval(intervalId)
     }
-}, 1000)
+}, 5)
 
+console.log(2);
 console.log('interval Id', intervalId)
 
 console.log(4);
