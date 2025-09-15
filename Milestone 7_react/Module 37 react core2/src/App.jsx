@@ -1,6 +1,8 @@
 
 import './App.css'
-
+import Counter from './Counte';
+import Batsman from './Batsman';
+import Boller from './Boller';
 function App() {
 
   function handleClick(){
@@ -14,6 +16,9 @@ function App() {
   return (
     <>  
         <h3>Hi </h3>
+        <Boller></Boller>
+        <Batsman></Batsman>
+        <Counter></Counter>
         <button onClick={handleClick}>Click me</button>
         <button onClick={clickMeBtn}>Click me 1</button>
         <button onClick={() => alert("I am clicked")}>Click me 2</button>

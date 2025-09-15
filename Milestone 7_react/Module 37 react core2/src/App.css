@@ -40,3 +40,6 @@
 .read-the-docs {
   color: #888;
 }
+.counterStyle, div{
+  border: 2px solid yellow ;
+}
