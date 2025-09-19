@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-    <Suspense fallback={ <span className="loading loading-ring loading-xl"></span> }>
+    <Suspense fallback={ <span className="loading loading-ring loading-4xl "></span> }>
      <Countries countriesPromise={countriesPromise}></Countries>
     </Suspense>
     </>
