@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Ocean Blue",
+    "image_link": "https://dummyimage.com/200x200/5E96B7/ffffff.png&text=Bottle+1",
+    "lifespan_days": 365,
+    "price_usd": 15.99,
+    "material": "Glass",
+    "capacity_ml": 750,
+    "is_reusable": true
+  },
+  {
+    "id": 2,
+    "name": "Forest Green",
+    "image_link": "https://dummyimage.com/200x200/528C4F/ffffff.png&text=Bottle+2",
+    "lifespan_days": 730,
+    "price_usd": 22.50,
+    "material": "Stainless Steel",
+    "capacity_ml": 1000,
+    "is_reusable": true
+  },
+  {
+    "id": 3,
+    "name": "Crimson Red",
+    "image_link": "https://dummyimage.com/200x200/C13936/ffffff.png&text=Bottle+3",
+    "lifespan_days": 180,
+    "price_usd": 9.99,
+    "material": "Plastic",
+    "capacity_ml": 500,
+    "is_reusable": false
+  },
+  {
+    "id": 4,
+    "name": "Midnight Black",
+    "image_link": "https://dummyimage.com/200x200/000000/ffffff.png&text=Bottle+4",
+    "lifespan_days": 500,
+    "price_usd": 18.75,
+    "material": "Aluminum",
+    "capacity_ml": 600,
+    "is_reusable": true
+  },
+  {
+    "id": 5,
+    "name": "Sunshine Yellow",
+    "image_link": "https://dummyimage.com/200x200/FFD966/000000.png&text=Bottle+5",
+    "lifespan_days": 365,
+    "price_usd": 12.00,
+    "material": "Glass",
+    "capacity_ml": 750,
+    "is_reusable": true
+  },
+  {
+    "id": 6,
+    "name": "Sky Blue",
+    "image_link": "https://dummyimage.com/200x200/87CEEB/000000.png&text=Bottle+6",
+    "lifespan_days": 730,
+    "price_usd": 25.00,
+    "material": "Stainless Steel",
+    "capacity_ml": 800,
+    "is_reusable": true
+  },
+  {
+    "id": 7,
+    "name": "Soft Pink",
+    "image_link": "https://dummyimage.com/200x200/FFC0CB/000000.png&text=Bottle+7",
+    "lifespan_days": 180,
+    "price_usd": 8.50,
+    "material": "Plastic",
+    "capacity_ml": 400,
+    "is_reusable": false
+  },
+  {
+    "id": 8,
+    "name": "Deep Purple",
+    "image_link": "https://dummyimage.com/200x200/800080/ffffff.png&text=Bottle+8",
+    "lifespan_days": 500,
+    "price_usd": 19.99,
+    "material": "Aluminum",
+    "capacity_ml": 700,
+    "is_reusable": true
+  },
+  {
+    "id": 9,
+    "name": "Crystal Clear",
+    "image_link": "https://dummyimage.com/200x200/FFFFFF/000000.png&text=Bottle+9",
+    "lifespan_days": 365,
+    "price_usd": 14.50,
+    "material": "Glass",
+    "capacity_ml": 900,
+    "is_reusable": true
+  },
+  {
+    "id": 10,
+    "name": "Metallic Grey",
+    "image_link": "https://dummyimage.com/200x200/808080/ffffff.png&text=Bottle+10",
+    "lifespan_days": 730,
+    "price_usd": 28.00,
+    "material": "Stainless Steel",
+    "capacity_ml": 1200,
+    "is_reusable": true
+  },
+  {
+    "id": 11,
+    "name": "Lemon Lime",
+    "image_link": "https://dummyimage.com/200x200/C8E84B/000000.png&text=Bottle+11",
+    "lifespan_days": 180,
+    "price_usd": 7.99,
+    "material": "Plastic",
+    "capacity_ml": 350,
+    "is_reusable": false
+  },
+  {
+    "id": 12,
+    "name": "Copper Glow",
+    "image_link": "https://dummyimage.com/200x200/B87333/ffffff.png&text=Bottle+12",
+    "lifespan_days": 500,
+    "price_usd": 21.50,
+    "material": "Copper",
+    "capacity_ml": 750,
+    "is_reusable": true
+  },
+  {
+    "id": 13,
+    "name": "Royal Blue",
+    "image_link": "https://dummyimage.com/200x200/4169E1/ffffff.png&text=Bottle+13",
+    "lifespan_days": 365,
+    "price_usd": 16.99,
+    "material": "Glass",
+    "capacity_ml": 850,
+    "is_reusable": true
+  },
+  {
+    "id": 14,
+    "name": "Sage Green",
+    "image_link": "https://dummyimage.com/200x200/8A9A5B/ffffff.png&text=Bottle+14",
+    "lifespan_days": 730,
+    "price_usd": 23.75,
+    "material": "Stainless Steel",
+    "capacity_ml": 950,
+    "is_reusable": true
+  },
+  {
+    "id": 15,
+    "name": "Tangerine Orange",
+    "image_link": "https://dummyimage.com/200x200/F28500/ffffff.png&text=Bottle+15",
+    "lifespan_days": 180,
+    "price_usd": 10.50,
+    "material": "Plastic",
+    "capacity_ml": 550,
+    "is_reusable": false
+  },
+  {
+    "id": 16,
+    "name": "Silver Shine",
+    "image_link": "https://dummyimage.com/200x200/C0C0C0/000000.png&text=Bottle+16",
+    "lifespan_days": 500,
+    "price_usd": 20.00,
+    "material": "Aluminum",
+    "capacity_ml": 650,
+    "is_reusable": true
+  },
+  {
+    "id": 17,
+    "name": "Ruby Red",
+    "image_link": "https://dummyimage.com/200x200/E0115F/ffffff.png&text=Bottle+17",
+    "lifespan_days": 365,
+    "price_usd": 17.25,
+    "material": "Glass",
+    "capacity_ml": 700,
+    "is_reusable": true
+  },
+  {
+    "id": 18,
+    "name": "Cobalt Blue",
+    "image_link": "https://dummyimage.com/200x200/0047AB/ffffff.png&text=Bottle+18",
+    "lifespan_days": 730,
+    "price_usd": 26.50,
+    "material": "Stainless Steel",
+    "capacity_ml": 1100,
+    "is_reusable": true
+  },
+  {
+    "id": 19,
+    "name": "Mint Green",
+    "image_link": "https://dummyimage.com/200x200/98FF98/000000.png&text=Bottle+19",
+    "lifespan_days": 180,
+    "price_usd": 9.25,
+    "material": "Plastic",
+    "capacity_ml": 450,
+    "is_reusable": false
+  },
+  {
+    "id": 20,
+    "name": "Bronze Age",
+    "image_link": "https://dummyimage.com/200x200/CD7F32/ffffff.png&text=Bottle+20",
+    "lifespan_days": 500,
+    "price_usd": 24.00,
+    "material": "Bronze",
+    "capacity_ml": 800,
+    "is_reusable": true
+  }
+]
