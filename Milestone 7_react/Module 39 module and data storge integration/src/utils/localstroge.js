@@ -1,33 +1,41 @@
+/**
+ * 1. to get something from local storage, you will get it as a string
+ * 2. convert this to javascript object/array
+*/
 
-
-// লোকাল স্টোরেজ থেকে কার্ট বের করার ফাংশন
-// যদি কার্ট না থাকে তাহলে খালি অ্যারে [] রিটার্ন করবে
 const getCartFromLocalStorage = () => {
     const storedCartString = localStorage.getItem('cart');
+
     if (storedCartString) {
-        // JSON string কে আবার array/object এ কনভার্ট করা
         const storedCart = JSON.parse(storedCartString);
         return storedCart;
     }
-    return []; // ডিফল্ট ফাঁকা অ্যারে
-};
+    return [];
+}
 
-// কার্টকে লোকাল স্টোরেজে সেভ করার ফাংশন
-const saveCartToLocalStorage = (cart) => {
-    // array/object কে JSON string এ কনভার্ট করা
+const saveCartToLocalStorage = cart => {
     const cartStringified = JSON.stringify(cart);
-    // লোকাল স্টোরেজে "cart" নামে সেট করা
     localStorage.setItem('cart', cartStringified);
-};
+}
 
-// নতুন আইটেম কার্টে যোগ করার ফাংশন
-const addItemToCartLocalStorage = (id) => {  // id তে রাখার কারণ হল যেন stroge কম লাগে 
-    // আগের কার্ট লোকাল স্টোরেজ থেকে আনো
+const addItemToCartLocalStorage = id => {
     const cart = getCartFromLocalStorage();
+    const newCart = [...cart, id];
 
-    // নতুন আইডি কার্টে যোগ করো
-    cart.push(...cart, id);
+    // save new cart to the local storage
+    saveCartToLocalStorage(newCart);
+}
 
-    // আপডেটেড কার্ট আবার লোকাল স্টোরেজে সেভ করো
-    saveCartToLocalStorage(cart);
-};
+const removeFromLocalStorage = id => {
+    const storedCart = getCartFromLocalStorage();
+    const remainingCart = storedCart.filter(storedId => storedId !== id);
+    saveCartToLocalStorage(remainingCart);
+}
+
+// const add = (a, b) => a + b;
+
+export {
+    getCartFromLocalStorage as getStoreCart,
+    addItemToCartLocalStorage as addToStoredCart,
+    removeFromLocalStorage as removeFromCart
+}
