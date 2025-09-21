@@ -13,7 +13,7 @@ const Bottle = ({ bottle, handleAddToCart }) => {
         <p> This is a simple bottle and its name is  {name} and it has {quantity} water and it's price is {price}</p>
         <p className='text-xl text-red-600 font-bold'>{price}</p>
         <div className="card-actions justify-end">
-          <button onClick={()=>handleAddToCart(name)} className="btn btn-primary">Buy Now</button>
+          <button onClick={()=>handleAddToCart(bottle)} className="btn btn-primary">Buy Now</button>
         </div>
       </div>
     </div>
