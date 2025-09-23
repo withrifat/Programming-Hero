@@ -1,12 +1,17 @@
+import React, { use } from 'react';
+import PlayerCart from './PlayerCart';
 
-import React from 'react';
+const AvailablePlayers = ({ playersPromise }) => {
+  const playerData = use(playersPromise);
+  console.log(playerData);
 
-const AvailablePlayers = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return (
+    <>
+      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 '>
+        {playerData.map((player) =><PlayerCart player={player}></PlayerCart> )}
+      </div>
+    </>
+  );
 };
 
 export default AvailablePlayers;
