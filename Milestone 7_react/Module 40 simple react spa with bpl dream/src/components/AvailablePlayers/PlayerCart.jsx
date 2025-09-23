@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
 
-const PlayerCart = ({player}) => {
+const PlayerCart = ({player, setAvailableBalance, availableBalance,purchasedPlayers, setPurchasedPlayers}) => {
+    
     const [isSelected, setIsSelected] = useState(false)
 
+  const handleSelected = (playerData) => {
+    const playerPrice = parseInt(playerData.price.split("USD").join("").split(",").join(""))
+    if(availableBalance<playerPrice){
+        alert("Not enough coins!!")
+        return
+    }
+    setIsSelected(true);
+    setAvailableBalance(
+      availableBalance - playerPrice
+    ); 
+    setPurchasedPlayers(...purchasedPlayers, playerData)
+  }; 
   return (
     <div>
       <div className="card bg-base-100 w-96 p-4 shadow-sm">
@@ -35,7 +48,12 @@ const PlayerCart = ({player}) => {
             <h2 className="font-bold py-1">
               Price: <span className="ml-1">$ {player['price']} </span>
             </h2>
-            <button disabled={isSelected} onClick={()=>setIsSelected(true)} className="btn border-gray-300 bg-white text-black"> {isSelected===true?"selected": "chose" } </button>
+            <button disabled={isSelected} onClick={() => handleSelected(player)}
+            // onClick={()=>{
+            //     setIsSelected(true)
+            //     setAvailableBalance(availableBalance-player.price.split("USD").join("").split(",").join(''))
+            // }} 
+            className="btn border-gray-300 bg-white text-black"> {isSelected===true?"selected": "chose" } </button>
           </div>
         </div>
       </div>

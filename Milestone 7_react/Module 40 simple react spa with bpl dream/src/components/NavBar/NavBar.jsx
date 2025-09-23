@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavBar = () => {
+const NavBar = ({availableBalance}) => {
   return (
     <div className="navbar bg-base-100 shadow-sm rounded-2xl px-4">
       {/* Left - Logo */}
@@ -76,7 +76,7 @@ const NavBar = () => {
           </li>
           <li className="flex items-center">
             <button className="btn btn-soft flex items-center">
-              <span>0</span> Coin
+              <span>{availableBalance}</span> Coin
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
