@@ -1,16 +1,20 @@
-import React, { use } from 'react';
-import PlayerCart from './PlayerCart';
+import React, { use } from "react";
 
-const AvailablePlayers = ({ playersPromise, setAvailableBalance, availableBalance, purchasedPlayers, setPurchasedPlayers}) => {
+
+import PlayerCard from "../PlayerCard/PlayerCard";
+const AvailablePlayers = ({ playersPromise,setAvailableBalance,availableBalance,setPurchasedPlayers,purchasedPlayers }) => {
   const playerData = use(playersPromise);
-
-
+ 
   return (
-    <>
-      <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 '>
-        {playerData.map((player) =><PlayerCart purchasedPlayers={purchasedPlayers}  setPurchasedPlayers={setPurchasedPlayers} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} player={player}></PlayerCart> )}
-      </div>
-    </>
+    <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+
+    {
+        playerData.map(player=><PlayerCard setPurchasedPlayers={setPurchasedPlayers} purchasedPlayers={purchasedPlayers} availableBalance={availableBalance} setAvailableBalance={setAvailableBalance} player={player}></PlayerCard>)
+    }
+
+
+     
+    </div>
   );
 };
 
