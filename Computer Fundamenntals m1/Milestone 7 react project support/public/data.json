@@ -1,0 +1,62 @@
+[
+  {
+    "ticketId": "PH-2001",
+    "subject": "Password reset request",
+    "description": "User forgot password and needs a reset.",
+    "status": "Submitted",
+    "priority": "High",
+    "category": "Authentication",
+    "createdAt": "2025-09-20T10:15:00Z",
+    "assignedTo": "Agent001",
+    "requestedBy": "Jhankar Mahbub",
+    "userImg": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "ticketId": "PH-2002",
+    "subject": "Email quota exceeded",
+    "description": "User cannot send emails due to mailbox full.",
+    "status": "Reviewed",
+    "priority": "Medium",
+    "category": "Email",
+    "createdAt": "2025-09-19T14:25:00Z",
+    "assignedTo": "Agent002",
+    "requestedBy": "Habib Utsho",
+    "userImg": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "ticketId": "PH-2003",
+    "subject": "Daily Steak Issue",
+    "description": "User reports that the daily steak feature is not working as expected.",
+    "status": "Pending",
+    "priority": "Low",
+    "category": "Hardware",
+    "createdAt": "2025-09-18T08:05:00Z",
+    "assignedTo": "Agent003",
+    "requestedBy": "Taskin Ahmed",
+    "userImg": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "ticketId": "PH-2004",
+    "subject": "Support Session Issue",
+    "description": "User is unable to join the scheduled support session.",
+    "status": "Pending",
+    "priority": "High",
+    "category": "Network",
+    "createdAt": "2025-09-17T09:45:00Z",
+    "assignedTo": "Agent004",
+    "requestedBy": "Mustafizur Rahman",
+    "userImg": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    "ticketId": "PH-2005",
+    "subject": "Video play issue",
+    "description": "User cannot play videos on mobile device.",
+    "status": "Pending",
+    "priority": "Medium",
+    "category": "Software",
+    "createdAt": "2025-09-16T16:30:00Z",
+    "assignedTo": "Agent001",
+    "requestedBy": "Neymar Jr",
+    "userImg": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHx8MA%3D%3D"
+  }
+]
