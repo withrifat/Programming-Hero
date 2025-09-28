@@ -1,2 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+.active {
+    @apply underline text-red-500  rounded-2xl;
+}
