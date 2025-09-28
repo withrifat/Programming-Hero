@@ -1,0 +1,49 @@
+[
+    {
+      "name": "Basic Plan",
+      "price": "$29.99/month",
+      "id": 1,
+      "description": "Ideal for individuals who want to stay fit with essential gym access.",
+      "features": [
+        "Access to gym facilities during regular hours",
+        "Unlimited use of cardio equipment",
+        "1 Free personal training session (first month)",
+        "Access to basic fitness classes",
+        "Free Wi-Fi access"
+      ]
+    },
+    {
+      "name": "Premium Plan",
+      "price": "$49.99/month",
+      "popular": true,
+      "id": 2,
+      "description": "Perfect for individuals who want additional perks and flexibility.",
+      "features": [
+        "24/7 gym access",
+        "Unlimited use of all gym equipment",
+        "3 Free personal training sessions per month",
+        "Access to premium fitness classes",
+        "Access to sauna and steam room",
+        "Discount on merchandise and services",
+        "Free towel service"
+      ]
+    },
+    {
+      "name": "Family Plan",
+      "price": "$99.99/month",
+      "id": 3,
+      "description": "Great for families who want to stay healthy together.",
+      "features": [
+        "2 adults and up to 2 children included",
+        "24/7 gym access",
+        "Unlimited use of gym equipment",
+        "Free personal training sessions for each adult",
+        "Access to family fitness classes",
+        "Free childcare during gym visits",
+        "Discounts on family wellness programs",
+        "Free access to family wellness events",
+        "Exclusive family fitness challenges"
+      ]
+    }
+  ]
+  
