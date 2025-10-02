@@ -3,6 +3,7 @@ import Container from '../tempComp/Container';
 const ControlField = () => {
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    const [email, setEmail] = useState('')
 
     const handleSubmit = (event) => {
         event.preventDefault();  // stop page refresh 
@@ -13,6 +14,9 @@ const ControlField = () => {
         // else {
         //     setError('')
         // }
+    }
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value);
     }
     const handlePasswordChange = (event) => {
         console.log(event.target.value);
@@ -29,7 +33,7 @@ const ControlField = () => {
       <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4 border p-4">
         <input className='input w-full' name='text' type="text" placeholder='your name here ' required />
         <br />
-        <input type="email" name='email' placeholder='your email here ' className='input w-full' required /> <br />
+        <input onChange={handleEmailChange} defaultValue={email} type="email" name='email' placeholder='your email here ' className='input w-full' required /> <br />
         <input defaultValue={password} onChange={handlePasswordChange} className='input w-full' name='password' type="password" placeholder='your password here ' required />
         <input className='btn' type="submit" value="Submit" />
       </form>
