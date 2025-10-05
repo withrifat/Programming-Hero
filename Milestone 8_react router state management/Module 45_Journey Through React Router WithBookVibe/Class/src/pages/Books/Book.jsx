@@ -1,87 +1,40 @@
-import React from "react";
+import React from 'react';
+import { MdStarHalf } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
-const Book = ({ book }) => {
-  const {
-    bookId,
-    bookName,
-    author,
-    image,
-    review,
-    totalPages,
-    rating,
-    category,
-    tags,
-    publisher,
-    yearOfPublishing,
-  } = book;
+
+
+const Book = ({ singleBook }) => {
+  const { bookName, author, bookId, image, rating, category, tags, yearOfPublishing, publisher } = singleBook || {};
 
   return (
-    <div className="card bg-white shadow-md hover:shadow-lg transition-all duration-300 rounded-xl overflow-hidden border border-gray-100 m-4 max-w-xl mx-auto">
-      {/* Image Section */}
-      <figure className="w-full h-64 md:h-72 overflow-hidden">
-        <img
-          src={image}
-          alt={bookName}
-          className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
-        />
+    <Link to={`/bookDetails/${bookId}`}>
+    <div className="card bg-base-100 w-96  border p-6 shadow">
+      <figure className="p-4 bg-gray-100 w-2/3 mx-auto">
+        <img className="h-[166px]" src={image} alt="Shoes" />
       </figure>
-
-      {/* Content Section */}
-      <div className="card-body p-6 space-y-3">
-        <div className="flex flex-wrap justify-between items-start">
-          <h2 className="text-2xl font-semibold text-gray-800 leading-snug">
-            {bookName}
-          </h2>
-          <span className="text-sm text-gray-500 font-medium">#{bookId}</span>
+      <div className="card-body ">
+        <div className="flex justify-center gap-10">
+          {
+                    tags.map(tag => <button  key={tag}   className='btn btn-outline border-green-600 '>{tag}</button>)
+                }
         </div>
+        <h2 className="card-title">
+          {bookName}
+          <div className="badge badge-secondary">{yearOfPublishing}</div>
+        </h2>
+        <p>Book by : {publisher}</p>
 
-        <p className="text-gray-600 font-medium">by {author}</p>
-
-        <p className="text-gray-500 text-sm leading-relaxed line-clamp-3">
-          {review}
-        </p>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-2">
-          {tags.map((tag, idx) => (
-            <span
-              key={idx}
-              className="px-3 py-1 bg-green-50 text-green-600 text-sm rounded-full border border-green-200"
-            >
-              #{tag}
-            </span>
-          ))}
-        </div>
-
-        {/* Extra Info */}
-        <div className="text-sm text-gray-600 space-y-1 mt-3">
-          <p>
-            <span className="font-medium text-gray-800">Category:</span> {category}
-          </p>
-          <p>
-            <span className="font-medium text-gray-800">Pages:</span> {totalPages}
-          </p>
-          <p>
-            <span className="font-medium text-gray-800">Rating:</span>{" "}
-            ⭐ {rating}/5
-          </p>
-          <p>
-            <span className="font-medium text-gray-800">Publisher:</span>{" "}
-            {publisher}
-          </p>
-          <p>
-            <span className="font-medium text-gray-800">Published:</span>{" "}
-            {yearOfPublishing}
-          </p>
-        </div>
-
-        {/* Action Button */}
-        <div className="card-actions justify-end mt-4">
-          <button className="btn btn-primary px-6">View Details</button>
+        <div className="border-t-1 border-dashed"></div>
+        <div className="card-actions justify-end">
+          <div className="badge badge-outline">{category}</div>
+          <div className="badge badge-outline">
+            {rating} <MdStarHalf className="inline-block"></MdStarHalf>
+          </div>
         </div>
       </div>
     </div>
+    </Link>
   );
 };
-
 export default Book;
