@@ -6,6 +6,7 @@ import { Component } from 'react';
 import About from '../pages/About/About';
 import BookDetails from '../pages/BookDetails/BookDetails';
 import ReadList from '../pages/ReadList/ReadList';
+import PagesGraph from '../pages/PagesGraph/PagesGraph';
 
 
 export const router = createBrowserRouter([
@@ -28,6 +29,11 @@ export const router = createBrowserRouter([
         path: '/bookDetails/:id',
         loader: () => fetch('booksData.json'),
         Component: BookDetails,
+      },
+      {
+        path: '/pageGraph',
+        loader: () => fetch('booksData.json'),
+        Component: PagesGraph,
       },
       {
         path: '/readList',

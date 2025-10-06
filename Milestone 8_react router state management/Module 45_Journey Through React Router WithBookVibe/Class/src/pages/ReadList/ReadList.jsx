@@ -60,6 +60,7 @@ const ReadList = () => {
         </TabPanel>
         <TabPanel>
           <h2>Your Wish List</h2>
+          
         </TabPanel>
       </Tabs>
     </div>

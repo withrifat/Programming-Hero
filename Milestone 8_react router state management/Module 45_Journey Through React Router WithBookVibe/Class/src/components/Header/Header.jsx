@@ -27,6 +27,11 @@ const Header = () => {
           Read List
         </li>
       </Link>
+      <Link to="/pageGraph">
+        <li className="mx-2 text-lg font-medium px-3 py-2 rounded-md cursor-pointer transition-all duration-200 border border-transparent hover:border-green-400 hover:text-green-500">
+          Page Graph
+        </li>
+      </Link>
     </>
   );
 
