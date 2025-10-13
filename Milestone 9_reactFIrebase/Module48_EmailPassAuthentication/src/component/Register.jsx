@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../Firebase/Firebase.init';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
@@ -11,10 +11,12 @@ const Register = () => {
 
   const handleRegister = (event) => {
     event.preventDefault();
+    const name = event.target.name.value;
+    const photoUrl = event.target.photoUrl.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
     const terms = event.target.terms.checked;
-    console.log(terms);
+    // console.log(name, photoUrl);
     
     const passwordPattern = /^.{6,}$/;
     if (!passwordPattern.test(password)) {
@@ -35,6 +37,25 @@ const Register = () => {
         console.log('User created:', result.user);
         setSuccess(true);
         event.target.reset();
+        // update user profile 
+        const profile = {
+          displayName: name,
+          photoURL: photoUrl,
+        }
+        updateProfile(result.user, profile)
+        .then(()=>{
+
+        })
+        .catch((error) => {
+          console.log(error.message);
+          setError(error.message);
+        });
+        // send verification email 
+        sendEmailVerification(result.user)
+        .then(()=> {
+          alert("Please verify your email address")
+        } )
+        
       })
       .catch((error) => {
         console.log(error.message);
@@ -54,6 +75,29 @@ const Register = () => {
           <div className="card-body">
             <form onSubmit={handleRegister}>
               <fieldset className="space-y-2">
+                {/* user name */}
+                <label className="label">
+                  <span className="label-text font-medium">Name</span>
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Enter Your Name"
+                  className="input input-bordered w-full"
+                  required
+                />
+                {/* photo url */}
+                <label className="label">
+                  <span className="label-text font-medium">Photo Url</span>
+                </label>
+                <input
+                  name="photoUrl"
+                  type="text"
+                  placeholder="Photo url"
+                  className="input input-bordered w-full"
+                  required
+                />
+                {/* email */}
                 <label className="label">
                   <span className="label-text font-medium">Email</span>
                 </label>

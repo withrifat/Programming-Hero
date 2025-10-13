@@ -2,7 +2,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../Firebase/Firebase.init';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import ForgetPassword from './ForgetPassword';
 
 const Login = () => {
   const [error, setError] = useState('');
@@ -27,6 +28,9 @@ const Login = () => {
         console.log('User logged in:', result.user);
         setSuccess(true);
         event.target.reset();
+        if (!result.user.emailVerified) {
+          alert('please verify your email address');
+        }
       })
       .catch((error) => {
         console.log(error.message);
@@ -78,9 +82,10 @@ const Login = () => {
                     {showPassword ? <FaEyeSlash /> : <FaEye />}
                   </button>
                 </div>
-
                 <div className="mt-2">
-                  <a className="link link-hover text-sm">Forgot password?</a>
+                  <NavLink to="/forgetpassword" className="link link-hover text-sm">
+                    Forgot password?
+                  </NavLink>
                 </div>
 
                 <button type="submit" className="btn btn-neutral w-full mt-4">
