@@ -1,15 +1,14 @@
 import React from 'react';
-import Header from '../components/Header';
+import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router';
 
-const Root = () => {
+const root = () => {
     return (
         <div>
-            <Header></Header>
+            <Navbar></Navbar>
             <Outlet></Outlet>
-            
         </div>
     );
 };
 
-export default Root;
+export default root;
