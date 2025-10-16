@@ -1,9 +1,9 @@
-import React, { use } from 'react';
-import { NavLink, Link } from 'react-router';
+import React, { useContext } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { AuthContext } from '../Contexts/AuthContext/AuthContext';
 
 const Navbar = () => {
-  const { user, signOutUser } = use(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
   const handleSignOut =()=>{
     signOutUser()
     .then(()=> {
@@ -45,6 +45,36 @@ const Navbar = () => {
           Register
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            `text-base transition-colors ${isActive ? 'text-primary font-medium' : 'text-base-content'}`
+          }
+        >
+          Dashboard
+        </NavLink>
+      </li>
+      {
+        user && <>
+      <li>
+        <NavLink
+          to="/orders"
+          className={({ isActive }) =>
+            `text-base transition-colors ${isActive ? 'text-primary font-medium' : 'text-base-content'}`}>
+          Order
+        </NavLink>
+      </li> 
+      <li>
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            `text-base transition-colors ${isActive ? 'text-primary font-medium' : 'text-base-content'}`}>
+          Profile
+        </NavLink>
+      </li> 
+        </>
+      }
     </>
   );
 

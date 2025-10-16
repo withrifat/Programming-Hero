@@ -1,42 +1,24 @@
-import React, { use } from 'react';
-import { Link } from 'react-router';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthContext/AuthContext';
-// import { createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "../../Firebase/Firebase.init";
 
 const Register = () => {
-  const { createUser } = use(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
-    // const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
 
     createUser(email, password)
       .then((userCredential) => {
         console.log(userCredential.user);
+        event.target.reset();
       })
       .catch((error) => {
         console.log(error.code, error.message);
       });
   };
-
-  // const handleRegister = (event) => {
-  //     event.preventDefault();
-  //     const name = event.target.name.value;
-  //     const email = event.target.email.value;
-  //     const password = event.target.password.value;
-
-  //     createUserWithEmailAndPassword(auth, email, password)
-  //     .then((userCredential) => {
-  //         console.log(userCredential.user);
-  //     })
-  //     .catch((error) => {
-  //         console.log(error.code , error.message);
-
-  //     });
-  // }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-base-200">
@@ -45,9 +27,6 @@ const Register = () => {
           <h1 className="text-3xl font-bold text-center mb-4">Please Register</h1>
           <form onSubmit={handleRegister}>
             <fieldset className="fieldset space-y-2">
-              {/* Name field */}
-              <label className="label">Name</label>
-              <input type="text" name="name" className="input input-bordered w-full" placeholder="Name" />
               {/* email field */}
               <label className="label">Email</label>
               <input type="email" name="email" className="input input-bordered w-full" placeholder="Email" />

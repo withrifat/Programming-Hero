@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithCredential, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, GoogleAuthProvider } from 'firebase/auth';
 import { auth } from '../../Firebase/Firebase.init';
+
+
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const signInUser = (email, password) => {
-    return signInWithCredential(auth, email, password);
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
   };
+  const signInWithGoogle = () =>{
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  }
   const signOutUser = () =>{
+    setLoading(true);
     return signOut(auth);
   }
   // get current uer info
@@ -21,6 +32,7 @@ const AuthProvider = ({ children }) => {
       // mount the observer
       console.log('current user in auth state change', currentUser);
       setUser(currentUser);
+      setLoading(false);
     });
     return () => { // clear the observer on unmount 
       unsubscribe();
@@ -29,10 +41,12 @@ const AuthProvider = ({ children }) => {
   
   const authInfo = {
     user,
+    loading,
     createUser,
     signInUser,
+    signInWithGoogle,
     signOutUser,
-    
+
   };
   return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
