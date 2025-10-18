@@ -13,4 +13,4 @@ const Qzone = () => {
     );
 };
 
-export default Qzone;<h2 className="font-bold mb-5">QZone</h2>
+export default Qzone;

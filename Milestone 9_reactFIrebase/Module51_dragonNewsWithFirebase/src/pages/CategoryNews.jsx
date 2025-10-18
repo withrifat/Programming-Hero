@@ -5,7 +5,7 @@ import NewsCard from '../components/HomeLayout/NewsCard';
 const CategoryNews = () => {
     const {id} = useParams();
     const data = useLoaderData();
-    // console.log(id, data);
+
     const [categoryNews, setCategoryNews] = useState([]);
 
     useEffect(()=>{
@@ -22,7 +22,6 @@ const CategoryNews = () => {
         
     },[data, id])
 
-    console.log(categoryNews);
     
     
     return (
