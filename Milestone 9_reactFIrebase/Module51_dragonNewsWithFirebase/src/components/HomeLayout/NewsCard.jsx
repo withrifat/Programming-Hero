@@ -1,34 +1,80 @@
 import React from 'react';
-import { CiBookmark, CiShare2 } from 'react-icons/ci';
+import { FaEye, FaStar, FaShareAlt, FaRegBookmark } from "react-icons/fa";
+import { Link } from 'react-router';
 
 const NewsCard = ({ news }) => {
+  const { id, title, author, thumbnail_url, details, rating, total_view } = news;
+
+  const formattedDate = new Date(
+    news.author.published_date
+  ).toLocaleDateString();
+
   return (
-    <div className="p-5 ">
-      {/* Header Section */}
-      <div className="flex items-center justify-between mb-4">
-        {/* Author Info */}
-        <div className="flex items-center space-x-3">
-          <img src={news.author.img} alt={news.author.name} className="w-12 h-12 rounded-full object-cover" />
+    <div className="card bg-base-100 shadow-md mb-6">
+      {/* Author + Share */}
+      <div className="flex bg-base-200 justify-between items-center p-4">
+        <div className="flex items-center gap-3">
+          <div className="avatar">
+            <div className="w-10 rounded-full">
+              <img src={author.img} alt={author.name} />
+            </div>
+          </div>
           <div>
-            <h3 className="text-gray-800 font-semibold text-md">{news.author.name || 'Unknown Author'}</h3>
-            <p className="text-gray-500 text-xs">{news.author.published_date || 'No date available'}</p>
+            <h2 className="font-bold text-sm">{author.name}</h2>
+            <p className="text-xs text-gray-500">{formattedDate}</p>
           </div>
         </div>
-        <div className="flex gap-3 items-center text-gray-600">
-          <CiBookmark size={28} className="cursor-pointer hover:text-gray-800" />
-          <CiShare2 size={28} className="cursor-pointer hover:text-gray-800" />
-        </div>
+        <button className="text-gray-500 hover:text-primary flex gap-1">
+          <FaRegBookmark></FaRegBookmark>
+          <FaShareAlt />
+        </button>
       </div>
 
-      {/* Content Section */}
-      <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-3">{news.title}</h2>
+      {/* Title */}
+      <div className="px-4 py-4">
+        <h2 className="text-lg font-bold text-primary  cursor-pointer">
+          {title}
+        </h2>
+      </div>
 
-        <img src={news.thumbnail_url} alt={news.title} className="w-full h-64 object-cover rounded-md mb-4" />
+      {/* Image */}
+      <div className="px-4 py-2">
+        <img
+          src={thumbnail_url}
+          alt={title}
+          className="w-full h-48 object-cover rounded-md"
+        />
+      </div>
 
-        <p className="text-gray-700 leading-relaxed text-sm">
-          {news.details.length > 250 ? news.details.slice(0, 250) + '...' : news.details}
-        </p>
+      {/* Details */}
+      <div className="px-4  text-accent">
+        {details.length > 200 ? (
+          <>
+            {details.slice(0, 200)}...
+            <Link to={`/news-details/${id}`} className="text-primary font-semibold cursor-pointer hover:underline">
+              Read More
+            </Link>
+          </>
+        ) : (
+          details
+        )}
+      </div>
+
+      {/* Footer */}
+      <div className="flex justify-between items-center px-4 py-3 border-t border-base-200 mt-3">
+        {/* Rating */}
+        <div className="flex items-center gap-1 text-orange-400">
+          {Array.from({ length: rating.number }).map((_, i) => (
+            <FaStar key={i} />
+          ))}
+          <span className="ml-2 text-gray-600">{rating.number}</span>
+        </div>
+
+        {/* Views */}
+        <div className="flex items-center gap-2 text-gray-500">
+          <FaEye />
+          <span>{total_view}</span>
+        </div>
       </div>
     </div>
   );
