@@ -35,7 +35,7 @@ const Login = () => {
             <input name="email" type="email" className="input" placeholder="Email" required />
             <label className="label">Password</label>
             <input name="password" type="password" className="input" placeholder="Password" required />
-            <div><a className="link link-hover">Forgot password?</a></div>
+            <div><NavLink to="/auth/passwordreset" className="link link-hover">Forgot password?</NavLink></div>
             <p>Don't have an account?<NavLink className="text-red-500 ml-2 hover:underline" to="/auth/register">Register</NavLink></p>
             <button type="submit" className="btn btn-neutral mt-4">Login</button>
           </fieldset>

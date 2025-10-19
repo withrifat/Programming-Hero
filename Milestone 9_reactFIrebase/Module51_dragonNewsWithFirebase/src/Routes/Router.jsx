@@ -6,6 +6,7 @@ import Login from '../pages/Login';
 import Register from '../pages/Register';
 import AuthLayout from '../layout/AuthLayout';
 import NewsDetails from '../pages/NewsDetails';
+import PassWordReset from '../pages/PassWordReset';
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "passwordreset",
+        element: <PassWordReset></PassWordReset>,
       },
     ],
   },
