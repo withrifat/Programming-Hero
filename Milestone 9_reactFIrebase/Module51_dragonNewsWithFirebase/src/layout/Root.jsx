@@ -1,13 +1,15 @@
 import React from 'react';
 import NavBar from '../components/NavBar/NavBar';
-import { Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 import LatestNews from '../components/LatestNews';
 import LeftAside from '../components/HomeLayout/LeftAside';
 import RightAside from '../components/HomeLayout/RightAside';
+import Loading from '../components/Loading';
 
 const Root = () => {
+  const {state} = useNavigate()
   return (
     <div className='container mx-auto'>
       {/* header section  */}
@@ -26,7 +28,7 @@ const Root = () => {
           <LeftAside></LeftAside>
         </aside>
         <section className="col-span-6">
-          <Outlet></Outlet>
+          {state=="loading"? <Loading></Loading> : <Outlet></Outlet>}
         </section>
         <aside className="col-span-3 sticky h-fit top-0">
           <RightAside></RightAside>

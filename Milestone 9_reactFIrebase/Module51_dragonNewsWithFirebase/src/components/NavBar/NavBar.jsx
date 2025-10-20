@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 import { ToastContainer, toast } from 'react-toastify';
+import userICon from "/user.png"
 
 const NavBar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -27,7 +28,8 @@ const NavBar = () => {
       <div className="flex gap-3 items-center">
         {user ? (
           <>
-            <img src="/user.png" alt="user" className="w-8 h-8 rounded-full" />
+            <img  src={`${user? user.photoURL: userICon }`} alt="user" className="w-8 h-8 rounded-full" />
+            {/* <img src="/user.png" alt="user" className="w-8 h-8 rounded-full" /> */}
             <button className="btn btn-primary px-4" onClick={handleSignOut} >Sign Out</button>
           </>
         ) : (

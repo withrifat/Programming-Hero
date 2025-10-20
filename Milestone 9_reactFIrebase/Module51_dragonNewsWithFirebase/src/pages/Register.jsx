@@ -1,26 +1,40 @@
-import React, {  useContext } from 'react';
-import { NavLink } from 'react-router';
-import { AuthContext } from '../Contexts/AuthContext';
+import React, { useContext } from "react";
+import { NavLink, useNavigate } from "react-router";
+import { AuthContext } from "../Contexts/AuthContext";
+import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser, setUser } = useContext(AuthContext);
+  const { createUser, setUser, updateUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const handleRegister = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    // const name = form.name.value;
-    // const photoURL = form.photoURL.value;
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
 
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setUser(user);
 
+        // update profile info
+        updateUser({ displayName: name, photoURL })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL });
+            navigate("/home");
+          })
+          .catch((err) => {
+            // console.error("Error updating user:", err);
+            toast(err)
+            setUser(user);
+          });
       })
       .catch((error) => {
-        console.log(error.code, error.message);
+        toast(error)
+        // console.error("Registration failed:", error.code, error.message);
       });
   };
 
@@ -31,13 +45,13 @@ const Register = () => {
         <form onSubmit={handleRegister} className="card-body">
           <fieldset className="fieldset">
             <label className="label">Name</label>
-            <input name="name" type="text" className="input" placeholder="Enter Your Name" />
+            <input name="name" type="text" className="input" required placeholder="Enter Your Name" />
             <label className="label">Photo URL</label>
-            <input name="photoURL" type="text" className="input" placeholder="Enter your photo URL" />
+            <input name="photoURL" type="text" className="input" required placeholder="Enter your photo URL" />
             <label className="label">Email</label>
-            <input name="email" type="email" className="input" placeholder="Email" />
+            <input name="email" type="email" required className="input" placeholder="Email" />
             <label className="label">Password</label>
-            <input name="password" type="password" className="input" placeholder="Password" />
+            <input name="password" type="password" required className="input" placeholder="Password" />
             <p>
               Already Have Account?
               <NavLink className="text-red-500 ml-2 hover:underline" to="/auth/login">

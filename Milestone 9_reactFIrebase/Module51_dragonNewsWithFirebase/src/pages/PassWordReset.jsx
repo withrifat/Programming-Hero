@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { NavLink } from 'react-router';
+import { toast } from 'react-toastify';
 
 const PassWordReset = () => {
   const { passWordReset } = useContext(AuthContext);
@@ -12,11 +13,12 @@ const PassWordReset = () => {
 
     passWordReset(email)
       .then(() => {
-        console.log("Password reset email sent to:", email);
+        // console.log("Password reset email sent to:", email);
         setEmail(""); // clear input
       })
       .catch((error) => {
-        console.error("Error sending password reset email:", error.message);
+        // console.error("Error sending password reset email:", error.message);
+        toast(error)
       });
   };
 
