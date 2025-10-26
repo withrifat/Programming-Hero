@@ -1,1 +1,0 @@
- let comm = "start "
