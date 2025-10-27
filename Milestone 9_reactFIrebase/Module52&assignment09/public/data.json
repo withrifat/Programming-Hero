@@ -1,0 +1,98 @@
+[
+  {
+    "toyId": 1,
+    "toyName": "Blocks shape-sorting Toy",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 29.00,
+    "rating": 4.0,
+    "availableQuantity": 50,
+    "description": "A classic shape sorter bucket with colorful blocks, perfect for teaching shapes and fine motor skills to toddlers.",
+    "pictureURL": "/toy1.png",
+    "subCategory": "Educational & Developmental"
+  },
+  {
+    "toyId": 2,
+    "toyName": "Magna etiam tempor orci",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 29.00,
+    "rating": 4.5,
+    "availableQuantity": 30,
+    "description": "A popular fantasy pony figure with wings, featuring accessories like a microphone and small gifts.",
+    "pictureURL": "/toy2.png",
+    "subCategory": "Dolls & Action Figures"
+  },
+  {
+    "toyId": 3,
+    "toyName": "Magna etiam tempor orci",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 39.00,
+    "rating": 3.5,
+    "availableQuantity": 65,
+    "description": "A colorful plastic stacking rings toy (ring toss) for babies and toddlers, promoting size differentiation and coordination.",
+    "pictureURL": "/toy3.png",
+    "subCategory": "Baby & Toddler Toys"
+  },
+  {
+    "toyId": 4,
+    "toyName": "Magna etiam tempor orci",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 39.00,
+    "rating": 5.0,
+    "availableQuantity": 40,
+    "description": "A cute, soft plush toy deer with a red bow, suitable for cuddling and imaginative play.",
+    "pictureURL": "/toy4.png",
+    "subCategory": "Plush Toys"
+  },
+  {
+    "toyId": 5,
+    "toyName": "Magna etiam tempor orci",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 29.00,
+    "rating": 3.0,
+    "availableQuantity": 25,
+    "description": "A remote-controlled toy vehicle featuring a popular gaming character, likely Mario, in a racing kart.",
+    "pictureURL": "/toy5.png",
+    "subCategory": "Remote Control & Vehicles"
+  },
+  {
+    "toyId": 6,
+    "toyName": "Magna etiam tempor orci",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 39.00,
+    "rating": 4.5,
+    "availableQuantity": 55,
+    "description": "A wooden pull-along toy shaped like a dog, designed to encourage walking and gross motor skills.",
+    "pictureURL": "/toy6.png",
+    "subCategory": "Wooden Toys"
+  },
+  {
+    "toyId": 7,
+    "toyName": "Hape scoot-around",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 29.00,
+    "rating": 4.0,
+    "availableQuantity": 70,
+    "description": "A wooden ride-on toy with four wheels, green trim, and a low seat, ideal for toddlers learning to scoot.",
+    "pictureURL": "/toy7.png",
+    "subCategory": "Ride-on Toys"
+  },
+  {
+    "toyId": 8,
+    "toyName": "Magna etiam tempor orci",
+    "sellerName": "Toy Land Store",
+    "sellerEmail": "contact@toyland.com",
+    "price": 39.00,
+    "rating": 3.0,
+    "availableQuantity": 45,
+    "description": "A multi-functional wooden baby walker with various activities like a xylophone, gears, and bead maze.",
+    "pictureURL": "/toy8.png",
+    "subCategory": "Activity Walkers & Centers"
+  }
+]
