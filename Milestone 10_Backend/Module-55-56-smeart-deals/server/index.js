@@ -56,11 +56,14 @@ async function run() {
     });
     app.patch('/products/:id', async (req, res) => {
       const id = req.params.id;
-      const updatedData = req.body;
+      const updateProduct = req.body;
       const query = { _id: new ObjectId(id) };
 
       const update = {
-        $set: updatedData
+        $set: {
+          name: updateProduct.name,
+          price: updateProduct.price
+        }
       };
 
       const result = await productsCollection.updateOne(query, update);
