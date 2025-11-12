@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes: light --default;
+}
+
+
+@layer utilities {
+  .bg-primary-gradient {
+    background: linear-gradient(to right, #632EE3, #9F62F2);
+  }
+
+  .text-primary-gradient {
+    background: linear-gradient(to right, #632EE3, #9F62F2);
+    background-clip: text;
+    /* Standard property (for completeness) */
+    -webkit-background-clip: text;
+    /* Needed for Chrome, Safari, Edge */
+    -webkit-text-fill-color: transparent;
+  }
+
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  /* Keep solid colors here */
+  --color-primary: #7B47ED;
+  /* midpoint of #632EE3 → #9F62F2 */
+  --color-secondary: #14b8a6;
+}
