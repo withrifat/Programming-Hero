@@ -1,17 +1,26 @@
-import React from "react";
+import React, { use } from "react";
 import { NavLink } from "react-router";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
+  const { user } = use(AuthContext)
+
   const links = (
     <>
       <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/allProducts">All Products</NavLink></li>
       <li><NavLink to="/register">Register</NavLink></li>
+      {
+        user && <>
+        <li><NavLink to="/myProducts">my Products</NavLink></li>
+        <li><NavLink to="/myBids">My Bids</NavLink></li>
+        </>
+      }
     </>
   );
 
   return (
-    <nav className="navbar bg-base-100/80 backdrop-blur-md shadow-sm sticky top-0 z-50 rounded-2xl px-5">
+    <nav className="navbar bg-base-100/80 backdrop-blur-md shadow-sm sticky top-0 z-50 rounded-2xl md:px-7 px-2">
       <div className="navbar-start">
         <div className="dropdown">
           <button tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,7 +33,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <a className="btn btn-ghost text-2xl font-bold normal-case">
+        <a className=" text-2xl font-bold normal-case">
           Smart <span className="text-primary-gradient">Deals</span>
         </a>
       </div>
@@ -36,9 +45,11 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
-        <button className="btn bg-primary-gradient text-white border-0 hover:opacity-90">
-          Login
-        </button>
+        {
+          user ?
+          <button className="btn bg-primary-gradient text-white border-0 hover:opacity-90">Sign Out</button>:
+          <button className="btn bg-primary-gradient text-white border-0 hover:opacity-90">Login</button>
+        }
       </div>
     </nav>
   );
