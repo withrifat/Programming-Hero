@@ -9,6 +9,8 @@ import PrivateRoute from "./PrivateRoute";
 import AddModel from "../Pages/AddModel/AddModel";
 import ModelDetails from "../Pages/ModelDetails/ModelDetails";
 import UpdateModel from "../Pages/UpdateModel/UpdateModel";
+import MyModels from "../Pages/MyModels/MyModels";
+import MyDownloads from "../Pages/MyDownloads/MyDownloads";
 
 export const router = createBrowserRouter([
   {
@@ -18,12 +20,13 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:3000/latest-models')
+        loader: () => fetch("https://m10-cs.vercel.app/recent-models"),
       },
       {
         path: "/all-models",
         element: <AllModels />,
-        loader: () => fetch('http://localhost:3000/models')
+        loader: () => fetch("https://m10-cs.vercel.app/models"),
+        hydrateFallbackElement: <div>Loading...</div>,
       },
       {
         path: "/profile",
@@ -48,7 +51,6 @@ export const router = createBrowserRouter([
             <ModelDetails />
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`http://localhost:3000/models/${params.id}`)
       },
 
         {
@@ -58,7 +60,23 @@ export const router = createBrowserRouter([
             <UpdateModel />
           </PrivateRoute>
         ),
-          loader: ({params}) => fetch(`http://localhost:3000/models/${params.id}`)
+      },
+
+       {
+        path: "/my-models",
+        element: (
+          <PrivateRoute>
+            <MyModels/>
+          </PrivateRoute>
+        ),
+      },
+        {
+        path: "/my-downloads",
+        element: (
+          <PrivateRoute>
+            <MyDownloads/>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/auth/login",

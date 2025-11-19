@@ -1,38 +1,64 @@
+import { use } from "react";
 import toast from "react-hot-toast";
-import { useLoaderData } from "react-router";
-import Swal from "sweetalert2";
+import { useParams } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const UpdateModel = () => {
-  const data = useLoaderData();
-  const model = data.result;
+  const {user} = use(AuthContext)
+   const [model, setModel] = useState(null);
+  const [loading, setLoading] = useState(true)
+  const {id} = useParams();
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    fetch(`https://m10-cs.vercel.app/models/${id}`, {
+      headers: {
+        authorization: user.accessToken,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setModel(data.result);
+        setLoading(false);
+      });
+  }, [user, id]);
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     const formData = {
       name: e.target.name.value,
       category: e.target.category.value,
       description: e.target.description.value,
       thumbnail: e.target.thumbnail.value,
+      created_at: new Date(),
+      downloads: 0,
     };
 
-    fetch(`http://localhost:3000/models/${model._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        toast.success("Successfully updated!");
-      })
-      .catch((err) => {
-        console.log(err);
+    try {
+      const res = await fetch(`https://m10-cs.vercel.app/models/${model._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: user.accessToken,
+        },
+        body: JSON.stringify(formData),
       });
+
+      const data = await res.json();
+      console.log(data);
+      toast.success("Model updated successfully!");
+    } catch (error) {
+      console.log(error);
+      toast.error(error.message);
+    }
   };
 
+  
+  if(loading) {
+    return <div>Models are loading... Please wait...</div> 
+  }
 
   return (
     <div className="card bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
@@ -103,7 +129,6 @@ const UpdateModel = () => {
 
           {/* Submit Button */}
           <button
-       
             type="submit"
             className="btn w-full text-white mt-6 rounded-full bg-linear-to-r from-pink-500 to-red-600 hover:from-pink-600 hover:to-red-700"
           >
