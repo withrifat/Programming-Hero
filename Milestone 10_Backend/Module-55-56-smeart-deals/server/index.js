@@ -33,6 +33,7 @@ async function run() {
         const bidsCollection = db.collection('bids');
         const usersCollection = db.collection('users');
 
+
         app.post('/users', async (req, res) => {
             const newUser = req.body;
             const email = req.body.email;
