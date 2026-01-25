@@ -29,3 +29,11 @@
   /* midpoint of #632EE3 → #9F62F2 */
   --color-secondary: #14b8a6;
 }
+
+/* Custom button override */
+.btn-primary {
+  @apply bg-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white;
+}
+.btn-primary:hover {
+  @apply opacity-90;
+}
