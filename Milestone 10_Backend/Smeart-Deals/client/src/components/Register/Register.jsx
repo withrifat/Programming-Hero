@@ -9,9 +9,9 @@ const Register = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        const name = e.target.name.value;
+        // const name = e.target.name.value;
         const email = e.target.email.value;
-        const image = e.target.image.value;
+        // const image = e.target.image.value;
         const password = e.target.password.value;
 
         // Firebase logic for user registration

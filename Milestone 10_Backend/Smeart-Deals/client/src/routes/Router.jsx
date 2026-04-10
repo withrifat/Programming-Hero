@@ -6,6 +6,8 @@ import AllProducts from '../components/AllProducts/AllProducts';
 import Bids from '../components/Bids/Bids';
 import Register from '../components/Register/Register';
 import Login from '../components/Login/Login';
+import MyProducts from '../pages/MyProducts';
+import MyBids from '../pages/MyBids';
 
 
 const router = createBrowserRouter([
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
         {
             path: "/bids",
             Component: Bids,
+        },
+        {
+            path: "/my-products",
+            element: <MyProducts></MyProducts>,
+        },
+        {
+            path: "/my-bids",
+            element: <MyBids></MyBids>,
         }
     ]
   },
