@@ -66,11 +66,11 @@ const links = (
       <div className="navbar-end gap-2">
         {/* <NavLink to="/login" className="btn btn-outline outline-primary ">Login</NavLink> */}
         {user ? (
-          <button onClick={handleSignOut} className="btn  bg-gradient-to-r from-purple-500 to-pink-500 text-white ">
+          <button onClick={handleSignOut} className="btn  btn-primary text-white ">
             Sign Out
           </button>
         ) : (
-          <NavLink to="/register" className="btn  bg-gradient-to-r from-purple-500 to-pink-500 text-white ">
+          <NavLink to="/register" className="btn  btn-primary text-white ">
             Register
           </NavLink>
         )}

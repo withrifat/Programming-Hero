@@ -6,6 +6,7 @@
 @theme {
   --color-secondary: #9F62F2;
   --image-primary-gradient: linear-gradient(to top left, #632EE3, #9F62F2);
+  --primary-gradient: linear-gradient(to top left, #632EE3, #9F62F2);
 }
 
 
@@ -22,5 +23,17 @@
   background-image: var(--image-primary-gradient);
   background-clip: text;
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
   color: transparent;
+  display: inline-block; 
+}
+/* Custom button override */
+/* .textt-primary {
+  @apply text-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white;
+} */
+.btn-primary {
+  @apply bg-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white;
+}
+.btn-primary:hover {
+  @apply opacity-90;
 }
