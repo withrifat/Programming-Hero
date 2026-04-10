@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light;
+}
+
+@theme {
+  --color-secondary: #9F62F2;
+  --image-primary-gradient: linear-gradient(to top left, #632EE3, #9F62F2);
+}
+
+
+@plugin "daisyui/theme" {
+  name: "light";
+
+  default: true; 
+
+  --color-primary: #632EE3; 
+  --color-secondary: #9F62F2;
+}
+
+@utility text-gradient {
+  background-image: var(--image-primary-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
