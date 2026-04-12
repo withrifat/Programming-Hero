@@ -31,15 +31,26 @@ const ProductDetails = () => {
             contactInfo: form.contactInfo.value,
             status: 'pending'
         };
-        const bidStr = JSON.stringify(bids);
 
-        console.log("Submitted Bid Data:", bidStr);
-        
-        // এখানে আপনি আপনার fetch বা axios কল যোগ করতে পারেন
-        // Example: fetch('url', { method: 'POST', body: JSON.stringify(bidData) })
-
-        bidModalRef.current.close();
-        form.reset(); 
+        // সরাসরি অবজেক্টটি পাঠান, ডাবল স্ট্রিংগিফাই করবেন না
+        fetch('http://localhost:3000/bids', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json' // এটি যোগ করা অত্যন্ত জরুরি
+            },
+            body: JSON.stringify(bids) 
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log("Success:", data);
+            // রেসপন্স পাওয়ার পর ফর্ম রিসেট এবং মোডাল ক্লোজ করা ভালো
+            bidModalRef.current.close();
+            form.reset();
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("বিড সাবমিট করতে সমস্যা হয়েছে।");
+        });
     };
 
     useEffect(() => {

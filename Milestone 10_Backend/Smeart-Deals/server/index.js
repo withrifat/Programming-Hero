@@ -74,11 +74,22 @@ async function run() {
             res.send(result);
         })
 
-        app.post('/bids', async(req, res)=>{
+        // app.post('/bids', async(req, res)=>{
+        //     const newBid = req.body;
+        //     const result = await bidsCollection.insertOne(newBid);
+        //     res.send(result);
+        // })
+        app.post('/bids', async (req, res) => {
             const newBid = req.body;
+
+            // productId যদি স্ট্রিং হিসেবে আসে সেটাকে ObjectId তে কনভার্ট করা ভালো (ঐচ্ছিক)
+            if (newBid.productId) {
+                newBid.productId = new ObjectId(newBid.productId);
+            }
+
             const result = await bidsCollection.insertOne(newBid);
             res.send(result);
-        })
+        });
         app.delete('/bids/:id', async(req, res)=>{
             const id = req.params.id;
             const query = {_id: new ObjectId(id)}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const MyBids = () => {
+const AllBids = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -37,7 +37,6 @@ const MyBids = () => {
                 <th className="py-4 px-4 font-semibold">Bidder Name</th>
                 <th className="py-4 px-4 font-semibold">Price (Bid)</th>
                 <th className="py-4 px-4 font-semibold">Status</th>
-                <th className="py-4 px-4 font-semibold text-center">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -84,20 +83,6 @@ const MyBids = () => {
                     </span>
                   </td>
 
-                  {/* Actions */}
-                  <td className="py-4 px-4">
-                    <div className="flex items-center justify-center gap-2">
-                      <button className="px-3 py-1 border border-purple-400 text-purple-500 text-xs rounded hover:bg-purple-500 hover:text-white transition-all">
-                        Edit
-                      </button>
-                      <button className="px-3 py-1 border border-orange-400 text-orange-500 text-xs rounded hover:bg-orange-500 hover:text-white transition-all">
-                        Delete
-                      </button>
-                      <button className="px-3 py-1 border border-green-400 text-green-500 text-xs rounded hover:bg-green-500 hover:text-white transition-all">
-                        Make Sold
-                      </button>
-                    </div>
-                  </td>
                 </tr>
               ))}
             </tbody>
@@ -108,4 +93,4 @@ const MyBids = () => {
   );
 };
 
-export default MyBids;
+export default AllBids;

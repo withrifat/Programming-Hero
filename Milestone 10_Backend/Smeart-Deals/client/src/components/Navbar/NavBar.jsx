@@ -20,7 +20,7 @@ const links = (
       <NavLink to="/AllProducts">All Products</NavLink>
     </li>
     <li>
-      <NavLink to="/bids">Bids</NavLink>
+      <NavLink to="/AllBids">All Bids</NavLink>
     </li>
     
     {user && (

@@ -10,10 +10,10 @@ const ProductCard = ({ products }) => {
   <figure className="relative overflow-hidden">
     <img 
       src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" 
-      alt="Shoes" 
+      alt="Shoes  " 
       className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
-    
+    <p className='hidden'>{image}</p>
     {/* Status Overlay - Inside Image */}
     <div className="absolute top-4 left-4">
       <div className="badge badge-secondary glass bg-opacity-60 px-4 py-3 font-bold tracking-wide text-white shadow-lg">
