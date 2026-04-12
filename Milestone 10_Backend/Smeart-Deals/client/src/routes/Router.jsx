@@ -2,13 +2,14 @@ import React from 'react';
 import { createBrowserRouter } from "react-router";
 import RootLayout from '../Layouts/RootLayout';
 import Home from '../components/Home/Home';
-import AllProducts from '../components/AllProducts/AllProducts';
 import Bids from '../components/Bids/Bids';
 import Register from '../components/Register/Register';
 import Login from '../components/Login/Login';
 import MyProducts from '../pages/MyProducts';
 import MyBids from '../pages/MyBids';
 import ProductDetails from '../components/ProductDetails/ProductDetails';
+import AllProducts from '../pages/AllProducts';
+
 
 
 const router = createBrowserRouter([
