@@ -1,22 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inder&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import "tailwindcss";
+
 @plugin "daisyui" {
   themes: light;
 }
 
 @theme {
+  /* Default Font হিসেবে Inder সেট করা হয়েছে */
+  --font-sans: "Inder", sans-serif;
+  
+  /* Poppins এর জন্য আলাদা ভেরিয়েবল */
+  --font-poppins: "Poppins", sans-serif;
+
   --color-secondary: #9F62F2;
   --image-primary-gradient: linear-gradient(to top left, #632EE3, #9F62F2);
   --primary-gradient: linear-gradient(to top left, #632EE3, #9F62F2);
 }
 
-
 @plugin "daisyui/theme" {
   name: "light";
-
   default: true; 
-
   --color-primary: #632EE3; 
   --color-secondary: #9F62F2;
+}
+
+/* Poppins এর জন্য কাস্টম ক্লাস */
+@utility font-poppins {
+  font-family: var(--font-poppins);
 }
 
 @utility text-gradient {
@@ -27,13 +37,11 @@
   color: transparent;
   display: inline-block; 
 }
-/* Custom button override */
-/* .textt-primary {
-  @apply text-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white;
-} */
+
 .btn-primary {
   @apply bg-gradient-to-r from-[#632EE3] to-[#9F62F2] border-none text-white;
 }
+
 .btn-primary:hover {
   @apply opacity-90;
 }

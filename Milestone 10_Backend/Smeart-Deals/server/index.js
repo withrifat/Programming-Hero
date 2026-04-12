@@ -89,28 +89,70 @@ async function run() {
         // ---------------------------------------
 
       // products api start ------------------------------------------------------------
+            // latest products
+        app.get('/latest-products', async (req, res)=>{
+            const cursor = productsCollection.find().sort({created_at: -1}).limit(9);
+            const result = await cursor.toArray();
+            res.send(result);
+        })
+
         app.get('/products', async (req, res) => {
             // const projectFields = { title: 1 }
             // const cursor = productsCollection.find().sort({ price_min: -1 }).project(projectFields);
 
-            console.log(req.query)
-            const email = req.query.email;
-            const query = {}
-            if (email) {
-                query.email = email;
-            }
+            // console.log(req.query)
+            // const email = req.query.email;
+            // const query = {}
+            // if (email) {
+            //     query.email = email;
+            // }
+            // const cursor = productsCollection.find(query);
 
-            const cursor = productsCollection.find(query);
+            const cursor = productsCollection.find();
             const result = await cursor.toArray();
             res.send(result)
         });
 
+        // app.get('/products/:id', async (req, res) => {
+        //     const id = req.params.id;
+        //     const query = { _id: new ObjectId(id) }
+        //     const result = await productsCollection.findOne(query);
+        //     res.send(result);
+        // })
+
         app.get('/products/:id', async (req, res) => {
             const id = req.params.id;
-            const query = { _id: new ObjectId(id) }
+
+            const query = {
+                $or: [
+                    { _id: id },                
+                    { _id: new ObjectId(id) }   
+                ]
+            };
+
             const result = await productsCollection.findOne(query);
             res.send(result);
-        })
+        });
+
+
+        // app.get('/products/:id', async (req, res) => {
+        //     try {
+        //         const id = req.params.id;
+                
+        //         // যেহেতু আপনার ডাটাবেসে ID গুলো স্ট্রিং হিসেবে আছে, 
+        //         // তাই সরাসরি id দিয়ে কুয়েরি করলেই ডাটা পাওয়া যাবে।
+        //         const query = { _id: id }; 
+                
+        //         const result = await productsCollection.findOne(query);
+                
+        //         if (!result) {
+        //             return res.status(404).send({ message: 'Product not found in DB' });
+        //         }
+        //         res.send(result);
+        //     } catch (error) {
+        //         res.status(500).send({ message: 'Server Error', error });
+        //     }
+        // });
 
         app.post('/products', async (req, res) => {
             const newProduct = req.body;
