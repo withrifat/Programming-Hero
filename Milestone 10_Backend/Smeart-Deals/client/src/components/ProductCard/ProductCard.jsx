@@ -2,17 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router';
 
 const ProductCard = ({ products }) => {
-  const { _id, title, status, image,price_min, price_max, description } = products;
+  const { _id, title, status, image,price_min,category, price_max, description } = products;
   //   const { _id, title, price_min, price_max, email, category, image, location, seller_name, seller_image, condition, usage, description, seller_contact } = product;
   return (
 <div className="group relative w-96 overflow-hidden rounded-2xl bg-base-100 shadow-md transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl">
   {/* Image Section with Hover Zoom */}
   <figure className="relative overflow-hidden">
-    <img 
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" 
-      alt="Shoes  " 
-      className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"
-    />
+    <img src={`https://loremflickr.com/800/800/${category.replace(/\s+/g, '')}?random=${_id}`} 
+    alt={title} 
+    className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"/>
     <p className='hidden'>{image}</p>
     {/* Status Overlay - Inside Image */}
     <div className="absolute top-4 left-4">

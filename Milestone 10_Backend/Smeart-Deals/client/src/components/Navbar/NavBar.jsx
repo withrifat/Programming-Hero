@@ -63,7 +63,10 @@ const links = (
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end gap-2">
+      <div className="navbar-end gap-3">
+        {user?.email === "mdrifathassain97880@gmail.com" && (
+            <NavLink to="/post" className="btn btn-outline btn-accent text-primary outline-primary hover:bg-primary hover:text-white border-primary">Post</NavLink>
+        )}
         {/* <NavLink to="/login" className="btn btn-outline outline-primary ">Login</NavLink> */}
         {user ? (
           <button onClick={handleSignOut} className="btn  btn-primary text-white ">

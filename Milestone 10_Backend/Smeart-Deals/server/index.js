@@ -62,6 +62,8 @@ async function run() {
         })
 
         // bids related apis ----------------------------------
+        // app.get('/bids/myProduct/:productId')
+
         app.get('/bids', async(req, res)=>{
             const email = req.query.email;
             const query = {};
@@ -81,8 +83,6 @@ async function run() {
         // })
         app.post('/bids', async (req, res) => {
             const newBid = req.body;
-
-            // productId যদি স্ট্রিং হিসেবে আসে সেটাকে ObjectId তে কনভার্ট করা ভালো (ঐচ্ছিক)
             if (newBid.productId) {
                 newBid.productId = new ObjectId(newBid.productId);
             }
@@ -100,6 +100,21 @@ async function run() {
         // ---------------------------------------
 
       // products api start ------------------------------------------------------------
+        app.get('/products/bids/:productId', async (req, res) => {
+            const productId = req.params.productId;
+            
+            // এখানে $or ব্যবহার করা হয়েছে যাতে আইডি String বা ObjectId যেভাবেই থাকুক, ডেটা পাওয়া যায়
+            const query = {
+                $or: [
+                    { productId: productId },
+                    { productId: new ObjectId(productId) }
+                ]
+            };
+
+            const cursor = bidsCollection.find(query).sort({ bidAmount: -1 });
+            const result = await cursor.toArray();
+            res.send(result);
+        });
             // latest products
         app.get('/latest-products', async (req, res)=>{
             const cursor = productsCollection.find().sort({created_at: -1}).limit(9);

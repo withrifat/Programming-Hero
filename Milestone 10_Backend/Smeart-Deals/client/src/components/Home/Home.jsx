@@ -52,7 +52,7 @@ const Home = () => {
                 <NavLink to="/AllProducts" className="btn btn-primary btn-md md:btn-lg rounded-xl px-8 text-white">
                   Watch all products
                 </NavLink>
-                <NavLink to="/add-product" className="btn btn-outline btn-secondary btn-md md:btn-lg rounded-xl px-8">
+                <NavLink to="/post" className="btn btn-outline btn-secondary btn-md md:btn-lg rounded-xl px-8">
                   Post a product
                 </NavLink>
               </div>
