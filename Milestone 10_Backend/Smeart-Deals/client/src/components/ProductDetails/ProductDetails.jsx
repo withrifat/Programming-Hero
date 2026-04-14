@@ -3,6 +3,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { use, useEffect, useRef } from 'react';
 import { AuthContext } from '../../context/AuthContex';
 import ProductBidsDetails from './ProductBidsDetails';
+import Swal from 'sweetalert2'
 
 const ProductDetails = () => {
     const product = useLoaderData();
@@ -45,13 +46,22 @@ const ProductDetails = () => {
         .then(res => res.json())
         .then(data => {
             console.log("Success:", data);
-            // রেসপন্স পাওয়ার পর ফর্ম রিসেট এবং মোডাল ক্লোজ করা ভালো
+            Swal.fire({
+            title: `Drag me! ${data}`,
+            icon: "success",
+            draggable: true
+            });
             bidModalRef.current.close();
             form.reset();
         })
         .catch(error => {
             console.error("Error:", error);
-            alert("বিড সাবমিট করতে সমস্যা হয়েছে।");
+            Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+            footer: "<a href=\"#\">Why do I have this issue?</a>"
+            });
         });
     };
 

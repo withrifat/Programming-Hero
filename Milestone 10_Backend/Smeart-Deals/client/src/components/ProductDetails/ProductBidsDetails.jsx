@@ -1,8 +1,37 @@
 import React, { useEffect, useState } from 'react';
+import Swal from 'sweetalert2'
+
 
 const ProductBidsDetails = ({ ProductID }) => {
     const [bids, setBids] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const deletBit =(id)=>{
+        fetch(`http://localhost:3000/bids/${id}`,{
+            method: 'DELETE',
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.deletedCount > 0){
+            Swal.fire({
+                title: "Deleted Successful",
+                icon: "success",
+                draggable: true
+                });
+            const remainingBids = bids.filter(bid => bid._id !== id);
+            setBids(remainingBids);
+            }
+        })
+        .catch(err => {
+            Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: `Something went wrong! ${err}`,
+            footer: "<a href=\"#\">Why do I have this issue?</a>"
+            });
+        });
+        
+    }
 
     useEffect(() => {
         fetch(`http://localhost:3000/products/bids/${ProductID}`)
@@ -87,7 +116,7 @@ const ProductBidsDetails = ({ ProductID }) => {
                                             <button className="btn btn-sm btn-success text-white px-4 hover:scale-105 transition-transform">
                                                 Accept
                                             </button>
-                                            <button className="btn btn-sm btn-outline btn-error px-4 hover:bg-error hover:text-white transition-all">
+                                            <button onClick={()=>deletBit(bid._id)} className="btn btn-sm btn-outline btn-error px-4 hover:bg-error hover:text-white transition-all">
                                                 Reject
                                             </button>
                                         </div>
