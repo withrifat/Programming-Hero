@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { toast } from 'react-hot-toast';
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const PostProducts = () => {
     const navigate = useNavigate();
@@ -66,12 +67,12 @@ const PostProducts = () => {
                 {/* Back Button */}
                 <button 
                     onClick={() => navigate(-1)} 
-                    className="mb-8 font-bold text-gray-600 hover:text-indigo-600 flex items-center gap-2 border-none bg-transparent cursor-pointer transition-all"
+                    className="mb-8 text-md font-bold text-gray-600 hover:text-indigo-600 flex items-center gap-2 border-none bg-transparent cursor-pointer transition-all"
                 >
-                    ← Back
+                    <IoMdArrowRoundBack /> Back
                 </button>
 
-                <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100">
+                <div className="bg-purple-200 rounded-3xl shadow-4xl overflow-hidden border border-slate-100">
                     <div className="bg-[#A855F7] p-8 text-center text-white">
                         <h1 className="text-3xl font-black uppercase tracking-wider">Post New Product</h1>
                         <p className="opacity-90 mt-2 font-medium">Sell your items quickly and professionally</p>
@@ -90,11 +91,26 @@ const PostProducts = () => {
                                 <div className="form-control">
                                     <label className="text-sm font-bold text-gray-500 mb-2 block uppercase tracking-tighter">Category</label>
                                     <select name="category" className="select select-bordered w-full focus:outline-none" required>
-                                        <option value="Electronics">Electronics</option>
-                                        <option value="Furniture">Furniture</option>
-                                        <option value="Home Appliances">Home Appliances</option>
-                                        <option value="Fashion">Fashion</option>
-                                        <option value="Others">Others</option>
+                                        <option value="Electronics">💻 Electronics</option>
+                                        <option value="Furniture">🛋️ Furniture</option>
+                                        <option value="Home Appliances">🏠 Home Appliances</option>
+                                        <option value="Fashion">👕 Fashion</option>
+                                        <option value="Baby Toys">🧸 Baby Toys</option>
+
+                                        <option value="Grocery">🛒 Grocery</option>
+                                        <option value="Health & Beauty">💄 Health & Beauty</option>
+                                        <option value="Sports & Outdoors">⚽ Sports & Outdoors</option>
+                                        <option value="Books & Stationery">📚 Books & Stationery</option>
+
+                                        <option value="Kitchen & Dining">🍽️ Kitchen & Dining</option>
+                                        <option value="Home Decor">🖼️ Home Decor</option>
+                                        <option value="Tools & Hardware">🛠️ Tools & Hardware</option>
+
+                                        <option value="Jewelry & Watches">⌚ Jewelry & Watches</option>
+                                        <option value="Bags & Travel">🎒 Bags & Travel</option>
+                                        <option value="Automotive">🚗 Automotive</option>
+                                        <option value="Pets & Accessories">🐶 Pets & Accessories</option>
+                                        <option value="Others">📦 Others</option>
                                     </select>
                                 </div>
                             </div>
