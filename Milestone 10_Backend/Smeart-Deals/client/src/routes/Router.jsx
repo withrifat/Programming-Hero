@@ -10,6 +10,7 @@ import ProductDetails from '../components/ProductDetails/ProductDetails';
 import AllProducts from '../pages/AllProducts';
 import AllBids from '../pages/AllBids';
 import PostProducts from '../pages/PostProducts';
+import PrivateRoute from './PrivateRoute';
 
 
 
@@ -32,12 +33,12 @@ const router = createBrowserRouter([
         },
         {
             path: "/post",
-            Component: PostProducts,
+            element: <PrivateRoute> <PostProducts></PostProducts> </PrivateRoute>,
         },
         {
             path: "/product-details/:id",
             loader: ({params})=> fetch(`http://localhost:3000/products/${params.id}`), 
-            element: <ProductDetails></ProductDetails>,
+            element: <ProductDetails><ProductDetails></ProductDetails></ProductDetails>,
         },
         {
             path: "/register",
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
         },
         {
             path: "/my-products",
-            element: <MyProducts></MyProducts>,
+            element: <PrivateRoute><MyProducts></MyProducts></PrivateRoute>,
         },
         {
             path: "/my-bids",
