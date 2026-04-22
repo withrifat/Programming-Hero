@@ -30,6 +30,7 @@ const verifyFireBaseToken = async(req, res, next) =>{
     // verify the token 
     try{
         const userInfo = await admin.auth().verifyIdToken(token);
+        req.token_email = userInfo.email;
         console.log("after token validation", userInfo);
         next();
     }
@@ -98,6 +99,9 @@ async function run() {
             const email = req.query.email;
             const query = {};
             if(email){
+                if(email !== req.token_email){
+                    return res.status(403).send({message: 'forbidden access'})
+                }
                 query.email = email; 
             }
 
