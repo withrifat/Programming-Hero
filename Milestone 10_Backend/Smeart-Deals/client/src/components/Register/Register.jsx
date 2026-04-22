@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { use, useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from 'react-icons/fc'; 
 import { AuthContext } from '../../context/AuthContex';
@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthContex';
 const Register = () => {
     const { createUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
+    const {setUser} = use(AuthContext);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -30,6 +31,7 @@ const Register = () => {
             signInWithGoogle()
             .then(result => {
                 console.log(result.user);
+                setUser(result.user);
                 const newUser = {
                     name: result.user.displayName,
                     email: result.user.email,

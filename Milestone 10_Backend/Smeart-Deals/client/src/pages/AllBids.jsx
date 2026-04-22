@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import Swal from 'sweetalert2'; 
+import { AuthContext } from '../context/AuthContex';
 const AllBids = () => {
 
   const [bids, setBids] = useState([]);
+  const {user} = use(AuthContext);
 
   const deletBit = (id) => {
     fetch(`http://localhost:3000/bids/${id}`, {
@@ -31,7 +33,11 @@ const AllBids = () => {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/bids')
+    fetch('http://localhost:3000/bids',{
+      headers:{
+            authorization: `Bearer ${user.accessToken}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {

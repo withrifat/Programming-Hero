@@ -3,11 +3,41 @@ const cors = require('cors');
 require('dotenv').config(); 
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 const app = express();
+const admin = require("firebase-admin");
 const port = process.env.PORT || 3000; 
+var serviceAccount = require("./firebase.json");
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
 
 // middleware
 app.use(cors());
 app.use(express.json());
+
+const logger = (req, res, next) => {
+    console.log("logger");
+    next();
+}
+const verifyFireBaseToken = async(req, res, next) =>{
+    if(!req.headers.authorization){
+        // do not allow to go 
+        return res.status(401).send({message: 'unauthorized access'})
+    }
+    const token = req.headers.authorization.split(" ")[1];
+    if(!token){
+        return res.status(401).send({message: 'unauthorized access'})
+    }
+    // verify the token 
+    try{
+        const userInfo = await admin.auth().verifyIdToken(token);
+        console.log("after token validation", userInfo);
+        next();
+    }
+    catch(err){
+        return res.status(401).send({message: 'unauthorized access'})
+    }
+}
+
 
 // mongodb uri
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@withrifat.onpudgz.mongodb.net/?retryWrites=true&w=majority&appName=withrifat`;
@@ -64,7 +94,7 @@ async function run() {
         // bids related apis ----------------------------------
         // app.get('/bids/myProduct/:productId')
 
-        app.get('/bids', async(req, res)=>{
+        app.get('/bids', logger, verifyFireBaseToken, async(req, res)=>{
             const email = req.query.email;
             const query = {};
             if(email){

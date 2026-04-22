@@ -50,3 +50,7 @@ Thumbs.db
 *.tgz
 *.zip
 *.tar.gz
+firebase.json
+.firebaserc
+.firebase/
+server/firebase.json

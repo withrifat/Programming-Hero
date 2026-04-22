@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { use, useContext } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from 'react-icons/fc'; 
 import { AuthContext } from '../../context/AuthContex';
@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthContex';
 const Login = () => {
     const { signInUser, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
+    const {setUser} = use(AuthContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -24,6 +25,7 @@ const Login = () => {
         signInWithGoogle()
             .then(result => {
                 console.log(result.user);
+                setUser(result.user)
                 navigate('/');
             })
             .catch(error => console.error(error));

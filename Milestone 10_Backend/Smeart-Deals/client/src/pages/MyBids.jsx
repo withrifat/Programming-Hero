@@ -1,11 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
+import { AuthContext } from '../context/AuthContex';
 
 const MyBids = () => {
   const [products, setProducts] = useState([]);
   const userEmail = "mdrifathassain97880@gmail.com"; 
+  const {user} = use(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/bids?email=${userEmail}`)
+    fetch(`http://localhost:3000/bids?email=${userEmail}`,{
+      headers:{
+        authorization: `Bearer ${user.accessToken}`
+      }
+    })
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
