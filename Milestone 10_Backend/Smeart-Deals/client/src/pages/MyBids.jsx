@@ -3,11 +3,10 @@ import { AuthContext } from '../context/AuthContex';
 
 const MyBids = () => {
   const [products, setProducts] = useState([]);
-  const userEmail = "mdrifathassain97880@gmail.com"; 
   const {user} = use(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/bids?email=${userEmail}`,{
+    fetch(`http://localhost:3000/bids?email=${user.email}`,{
       headers:{
         authorization: `Bearer ${user.accessToken}`
       }
@@ -23,7 +22,7 @@ const MyBids = () => {
       .catch((err) => {
         console.error('Error fetching products:', err);
       });
-  }, [userEmail]);
+  }, [user]);
 
   return (
     <div className="p-4 md:p-8 bg-white min-h-screen">

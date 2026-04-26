@@ -1,10 +1,9 @@
 import React, { use, useEffect, useState } from 'react';
-import Swal from 'sweetalert2'; 
+import Swal from 'sweetalert2';
 import { AuthContext } from '../context/AuthContex';
 const AllBids = () => {
-
   const [bids, setBids] = useState([]);
-  const {user} = use(AuthContext);
+  const { user } = use(AuthContext);
 
   const deletBit = (id) => {
     fetch(`http://localhost:3000/bids/${id}`, {
@@ -14,29 +13,29 @@ const AllBids = () => {
       .then((data) => {
         if (data.deletedCount > 0) {
           Swal.fire({
-            title: "Deleted Successful",
-            icon: "success",
-            timer: 1500
+            title: 'Deleted Successful',
+            icon: 'success',
+            timer: 1500,
           });
-          
+
           const remainingBids = bids.filter((bid) => bid._id !== id);
           setBids(remainingBids);
         }
       })
       .catch((err) => {
         Swal.fire({
-          icon: "error",
-          title: "Oops...",
+          icon: 'error',
+          title: 'Oops...',
           text: `Something went wrong! ${err.message}`,
         });
       });
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/bids',{
-      headers:{
-            authorization: `Bearer ${user.accessToken}`
-      }
+    fetch('http://localhost:3000/bids', {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -68,24 +67,17 @@ const AllBids = () => {
                 <th className="py-4 px-4 font-semibold">Bidder Name</th>
                 <th className="py-4 px-4 font-semibold">Price (Bid)</th>
                 <th className="py-4 px-4 font-semibold">Status</th>
-                <th className="py-4 px-4 font-semibold">Action</th> 
+                <th className="py-4 px-4 font-semibold">Action</th>
               </tr>
             </thead>
             <tbody>
               {bids.map((bid, index) => (
-                <tr 
-                  key={bid._id} 
-                  className="border-b last:border-0 hover:bg-gray-50 transition-colors duration-200"
-                >
+                <tr key={bid._id} className="border-b last:border-0 hover:bg-gray-50 transition-colors duration-200">
                   <td className="py-4 px-4 text-gray-700 font-medium">{index + 1}</td>
-                  
+
                   <td className="py-4 px-4">
                     <div className="w-12 h-10 bg-gray-100 rounded overflow-hidden">
-                      <img 
-                        src={bid.imageURL} 
-                        alt={bid.productTitle} 
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={bid.imageURL} alt={bid.productTitle} className="w-full h-full object-cover" />
                     </div>
                   </td>
 
@@ -94,20 +86,24 @@ const AllBids = () => {
                   <td className="py-4 px-4 text-gray-700 font-semibold">${bid.bidAmount}</td>
 
                   <td className="py-4 px-4">
-                    <span className={`text-white text-xs px-3 py-1 rounded-full font-medium shadow-sm ${
-                      bid.status === 'pending' ? 'bg-yellow-400' : 'bg-green-500'
-                    }`}>
+                    <span
+                      className={`text-white text-xs px-3 py-1 rounded-full font-medium shadow-sm ${
+                        bid.status === 'pending' ? 'bg-yellow-400' : 'bg-green-500'
+                      }`}
+                    >
                       {bid.status}
                     </span>
                   </td>
 
                   <td className="py-4 px-4">
-                    <button 
-                      onClick={() => deletBit(bid._id)} 
-                      className="btn btn-sm btn-outline btn-error px-4 hover:bg-red-500 hover:text-white transition-all"
-                    >
-                      Reject
-                    </button>
+                    {user?.email === 'mdrifathassain97880@gmail.com' && (
+                      <button
+                        onClick={() => deletBit(bid._id)}
+                        className="btn btn-sm btn-outline btn-error px-4 hover:bg-red-500 hover:text-white transition-all"
+                      >
+                        Reject
+                      </button>
+                    )}
                   </td>
                 </tr>
               ))}

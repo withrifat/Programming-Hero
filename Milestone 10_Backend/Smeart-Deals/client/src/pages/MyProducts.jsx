@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import useAxiosInstant from '../Hooks/useAxiosInstant';
 import { AuthContext } from '../context/AuthContex';
+import BtnDelet from '../Utils/BtnDelet';
 
 const MyProducts = () => {
   const { user } = useContext(AuthContext);
@@ -9,13 +10,12 @@ const MyProducts = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axiosInstance.get(`/products?email=${user.email}`)
-        .then(res => {
-          setProducts(res.data);
-        });
+      axiosInstance.get(`/products?email=${user.email}`).then((res) => {
+        setProducts(res.data);
+      });
     }
   }, [axiosInstance, user?.email]);
-  
+
   return (
     <div className="p-4 md:p-8 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto">
@@ -38,17 +38,13 @@ const MyProducts = () => {
             </thead>
             <tbody>
               {products.map((product, index) => (
-                <tr 
-                  key={product._id} 
+                <tr
+                  key={product._id}
                   className="border-b last:border-0 hover:bg-gray-50 transition-colors duration-200"
                 >
                   <td className="py-4 px-4 text-gray-700 font-medium">{index + 1}</td>
                   <td className="py-4 px-4">
-                    <img 
-                      src={product.image} 
-                      alt={product.title} 
-                      className="w-12 h-10 object-cover rounded shadow-sm"
-                    />
+                    <img src={product.image} alt={product.title} className="w-12 h-10 object-cover rounded shadow-sm" />
                   </td>
                   <td className="py-4 px-4 text-gray-700 font-medium">{product.title}</td>
                   <td className="py-4 px-4 text-gray-600">{product.category}</td>
@@ -56,9 +52,11 @@ const MyProducts = () => {
                     ${product.price_min} - ${product.price_max}
                   </td>
                   <td className="py-4 px-4">
-                    <span className={`text-white text-xs px-3 py-1 rounded-full font-medium shadow-sm ${
-                      product.status === 'pending' ? 'bg-yellow-400' : 'bg-green-500'
-                    }`}>
+                    <span
+                      className={`text-white text-xs px-3 py-1 rounded-full font-medium shadow-sm ${
+                        product.status === 'pending' ? 'bg-yellow-400' : 'bg-green-500'
+                      }`}
+                    >
                       {product.status}
                     </span>
                   </td>
@@ -67,12 +65,7 @@ const MyProducts = () => {
                       <button className="px-3 py-1 border border-purple-400 text-purple-500 text-xs rounded hover:bg-purple-500 hover:text-white transition-all">
                         Edit
                       </button>
-                      <button className="px-3 py-1 border border-orange-400 text-orange-500 text-xs rounded hover:bg-orange-500 hover:text-white transition-all">
-                        Delete
-                      </button>
-                      <button className="px-3 py-1 border border-green-400 text-green-500 text-xs rounded hover:bg-green-500 hover:text-white transition-all">
-                        Make Sold
-                      </button>
+                      <BtnDelet id={product._id} products={products} setProducts={setProducts} />
                     </div>
                   </td>
                 </tr>
