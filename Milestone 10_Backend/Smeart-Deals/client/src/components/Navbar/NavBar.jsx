@@ -5,8 +5,6 @@ import { use } from 'react';
 
 const NavBar = () => {
   const { user, signOutUser } = use(AuthContext);
-  // console.log(user);
-
   const handleSignOut = () => {
     signOutUser().then().catch();
   };
@@ -22,7 +20,12 @@ const links = (
     <li>
       <NavLink to="/AllBids">All Bids</NavLink>
     </li>
-    
+    {user?.email === 'mdrifathassain97880@gmail.com' && (
+      <li>
+        <NavLink to="/create">Create</NavLink>
+      </li>
+    )}
+   
     {user && (
       <>
         <li>
@@ -35,7 +38,6 @@ const links = (
     )}
   </>
 );
-
   return (
     <div className="navbar bg-base-100 shadow-sm max-w-[1400px] mx-auto">
       <div className="navbar-start">

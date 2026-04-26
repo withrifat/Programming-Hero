@@ -155,8 +155,32 @@ async function run() {
             const result = await cursor.toArray();
             res.send(result);
         })
-
         app.get('/products', async (req, res) => {
+            try {
+                const email = req.query.email;
+                const query = {};
+
+                // যদি ইমেইল থাকে তবে কুয়েরিতে যোগ করা হবে
+                if (email) {
+                    query.email = email;
+                }
+
+                // প্রজেকশন অবজেক্ট
+                // const projectFields = { title: 1 };
+
+                // একটি কুইরিতেই সব কন্ডিশন যুক্ত করা হয়েছে
+                const result = await productsCollection
+                    .find(query)
+                    .sort({ price_min: -1 }) // দাম অনুযায়ী সর্ট করবে
+                    .toArray();
+                    // .project(projectFields) 
+
+                res.send(result);
+            } catch (error) {
+                res.status(500).send({ message: "Error fetching products", error });
+            }
+        });
+        // app.get('/products', async (req, res) => {
             // const projectFields = { title: 1 }
             // const cursor = productsCollection.find().sort({ price_min: -1 }).project(projectFields);
 
@@ -167,11 +191,12 @@ async function run() {
             //     query.email = email;
             // }
             // const cursor = productsCollection.find(query);
+            // const cursor = productsCollection.find();
 
-            const cursor = productsCollection.find();
-            const result = await cursor.toArray();
-            res.send(result)
-        });
+
+        //     const result = await cursor.toArray();
+        //     res.send(result)
+        // });
 
         // app.get('/products/:id', async (req, res) => {
         //     const id = req.params.id;

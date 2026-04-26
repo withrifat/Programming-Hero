@@ -2,23 +2,29 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import ProductCard from '../components/ProductCard/ProductCard';
+import useAxios from '../Hooks/useAxiosInstant';
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
+  const axiosInstance = useAxios();
   // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/products')
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        // setLoading(false);
-      })
-      .catch((err) => {
-        console.error('Error fetching products:', err);
-        // setLoading(false);
-      });
-  }, []);
+    axiosInstance.get('/products')
+    .then(data => {
+      setProducts(data.data);
+    })
+  }, [axiosInstance]);
+  // useEffect(() => {
+  //   fetch('http://localhost:3000/products')
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setProducts(data);
+  //     })
+  //     .catch((err) => {
+  //       console.error('Error fetching products:', err);
+  //     });
+  // }, []);
 
   return (
     <div className="max-w-7xl mx-auto">

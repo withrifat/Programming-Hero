@@ -11,6 +11,7 @@ import AllProducts from '../pages/AllProducts';
 import AllBids from '../pages/AllBids';
 import PostProducts from '../pages/PostProducts';
 import PrivateRoute from './PrivateRoute';
+import Create from '../pages/Create';
 
 
 
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
         {
             path: "/my-bids",
             element: <MyBids></MyBids>,
+        },
+        {
+            path: "/create",
+            element: <Create></Create>,
         }
     ]
   },

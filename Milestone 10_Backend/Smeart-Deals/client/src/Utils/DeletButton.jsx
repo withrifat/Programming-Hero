@@ -45,8 +45,7 @@ const DeleteButton = ({ id, apiUrl, onDeleteSuccess, userEmail }) => {
     return (
         <button 
             onClick={handleDelete} 
-            className="btn btn-sm btn-outline btn-error px-4 hover:bg-error hover:text-white transition-all"
-        >
+            className="btn btn-sm btn-outline btn-error px-4 hover:bg-error hover:text-white transition-all">
             Reject
         </button>
     );
