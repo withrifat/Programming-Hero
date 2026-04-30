@@ -16,6 +16,6 @@ const useAxiosSecure = ()=>{
             instance.interceptors.request.eject(requestInterceptor);
         }
 
-    },[user])
+    },[user,])
 } 
 export default useAxiosSecure;
